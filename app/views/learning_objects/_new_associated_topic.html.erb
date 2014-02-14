@@ -1,0 +1,18 @@
+<div class="row-fluid metadata-body">
+	<div class="span10">
+		<div class="row-fluid">
+			<div class="span2">Choose Category: </div>
+			<div class="span10">
+				<%= collection_select(:learning_object, :course_id, Course.order(:name), :id, :name, { :include_blank => true }, { :class=> "learning_object_course_id" }) %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span2">Choose topic: </div>
+			<div class="span10"><%= grouped_collection_select(:learning_object, :content_id, Course.order(:name), :topics, :name,:id, :name, { :include_blank => true }, { :class=> "learning_object_content_id" }) %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div><%= link_to "Agregar categoría "%></div>
+		</div>
+	</div>	
+</div>

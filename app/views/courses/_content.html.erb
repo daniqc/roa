@@ -1,0 +1,25 @@
+<%= content_tag :tr, :class => ("success" if content.type == 'Topic') do %>
+  <td style="padding-left:<%= content.depth*30 %>px">
+    <%= content.number %>
+  </td>
+  <td>
+    <%= content.name %>
+  </td>
+  <td>
+    <%= content.hours %>
+  </td>
+  <td>
+    <%= content.in_hours %>
+  </td>
+  <td>
+    <%= content.out_hours %>
+  </td>
+
+  <% if content.type == 'Topic' %> 
+    <%= render :partial => 'topic', :locals => { :content => content }%>
+  <% end %>
+
+  <% if content.type == 'Subtopic' %> 
+    <%= render :partial => 'subtopic', :locals => { :content => content }%>
+  <% end %>
+<% end %>

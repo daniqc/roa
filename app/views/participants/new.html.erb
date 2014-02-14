@@ -1,0 +1,19 @@
+<div class="div-fluid">
+    <div class="page-header">
+      <h2>New Participant <small>to <%= @course.name %></small></h2>
+    </div>
+    <div class="navbar">
+    	<div class="navbar-inner">
+    		<ul class="nav">
+    			<li><%= link_to course_participants_path(@course) do %>
+    				<i class="icon-chevron-left"></i>
+    				Back
+    				<% end %>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+
+<%= render 'form' %>
+</div>
+<%#= link_to 'Back', participants_path %>

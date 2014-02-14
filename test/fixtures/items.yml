@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organization_id: 
+  identifier: MyString
+  title: MyString
+  isvisible: false
+  resource_ref_id: MyString
+
+two:
+  organization_id: 
+  identifier: MyString
+  title: MyString
+  isvisible: false
+  resource_ref_id: MyString

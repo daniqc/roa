@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Learning object:</b>
+  <%= @resource.learning_object_id %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @resource.identifier %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @resource.type %>
+</p>
+
+<p>
+  <b>Principal resource ref:</b>
+  <%= @resource.principal_resource_ref %>
+</p>
+
+
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>

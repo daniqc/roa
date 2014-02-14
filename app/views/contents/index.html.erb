@@ -1,0 +1,36 @@
+<h1>Listing contents</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Number</th>
+        <th>Name</th>
+        <th>Hours</th>
+        <th>In hours</th>
+        <th>Out hours</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= content.course_id %></td>
+        <td><%= content.number %></td>
+        <td><%= content.name %></td>
+        <td><%= content.hours %></td>
+        <td><%= content.in_hours %></td>
+        <td><%= content.out_hours %></td>
+        <td><%= link_to 'Show', content %></td>
+        <td><%= link_to 'Edit', edit_content_path(content) %></td>
+        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Content', new_content_path %>

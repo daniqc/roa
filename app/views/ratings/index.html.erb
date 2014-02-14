@@ -1,0 +1,41 @@
+<div class="div-fluid">
+  <div class="page-header">
+      <h2>Listado de evaluaciones de <%= @learning_object.name %><small></small></h2>
+  </div>
+  
+  <div class="container-fluid material-table">
+    <div class="row-fluid">
+      <div class="span1">
+      </div>
+      <div class="span2">
+        <p>
+          Evaluación
+        </p>
+      </div>
+      <div class="span9">
+        <p class="align-center">
+          Observación
+        </p>
+      </div>
+    </div>
+    <% @ratings.each do |rating| %>
+      <div class="row-fluid rating-row <%= cycle('anything','odd') %>">
+        <div class="span1">
+        </div>
+        <div class="span2">
+          <div>
+            <% if !rating.person.nil? %>
+              <strong><%= rating.person.name %></strong>
+            <% else %>
+              <strong>Soy el autor anonimo</strong>
+            <% end %>
+          </div>
+          <%= render :partial => 'rating_star_readOnly', :locals => {:rating => rating } %>
+        </div>
+        <div class="span9">
+          <%= rating.comment %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

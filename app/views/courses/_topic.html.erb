@@ -1,0 +1,15 @@
+<td>
+  <%= link_to new_course_subtopic_path(@course, :parent_id => content), :class => "btn btn-mini", :title => "Add new subtopic to topic" do %>
+    <i class="icon-plus"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to edit_topic_path(content), :class => "btn btn-mini", :title => "Edit Topic" do %>
+    <i class="icon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to content, :class => "btn btn-mini", :title => "Delete topic", method: :delete, data: { confirm: 'Are you sure?' } do %>
+  	<i class="icon-trash"></i>
+  <% end %>
+</td>

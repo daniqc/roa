@@ -1,0 +1,26 @@
+<div class="row-fluid metadata-body">
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span3">Version: </div>
+			<div class="span9"><%= text_field_tag(:life_cycle_version) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Status: </div>
+			<div class="span9"><%= select_tag(:life_cycle_status, options_for_select(["Draft", "Final", "Revised", "Unavailable"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Author: </div>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_role) %></div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span3">Contribute entity: </div>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_entity) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Contribute Date: </div>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_date) %></div>
+		</div>
+	</div>	
+</div>

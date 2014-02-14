@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Metadata schema:</b>
+  <%= @lo_metadata_schema.metadata_schema_id %>
+</p>
+
+<p>
+  <b>Learning object:</b>
+  <%= @lo_metadata_schema.learning_object_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @lo_metadata_schema.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_lo_metadata_schema_path(@lo_metadata_schema) %> |
+<%= link_to 'Back', lo_metadata_schemas_path %>

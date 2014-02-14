@@ -1,0 +1,51 @@
+<%= form_for [@learning_object, @rating] do |f| %>
+  <% if @rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+      <% @rating.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :person_id, :value => current_person.id %>
+  <%= f.hidden_field :learning_object_id, :value => @learning_object.id %>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span4">
+        <p class="align-right">Haz clic en las estrellas para evaluar!</p>
+      </div>
+      <div class="span4">
+        <%= render 'rating_star' %>
+        <span id="hover-test" style="margin:0 0 0 20px;"></span>
+      </div>
+      <div class="span4">
+        <%= link_to "Revisa el rating de este material", learning_object_ratings_path(@learning_object)%>
+      </div>
+    </div>
+    <br>
+    <div class="row-fluid">
+      <div class="span4">
+        <p class="align-right" style="padding-top: 10px;">Comenta esta evaluación</p><br/>
+      </div>
+      <div class="span8">
+        <%= f.text_area :comment, :class => "rating-text-area", placeholder: 'Agrega un nuevo comentario...', :maxlength => 100 %>
+      </div>
+    </div>
+    <br>
+    <div class="row-fluid">
+      <div class="span4">
+      </div>
+      <div class="span4">
+        <div class="align-center">
+          <%= f.submit "Agrega tu rating!", :class=> "btn btn-small btn-success"%>
+        </div>
+      </div>
+      <div class="span4">
+      </div>
+    </div>
+  </div>
+<% end %>

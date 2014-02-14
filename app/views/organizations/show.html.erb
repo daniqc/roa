@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Learning object:</b>
+  <%= @organization.learning_object_id %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @organization.identifier %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @organization.title %>
+</p>
+
+<p>
+  <b>Structure:</b>
+  <%= @organization.structure %>
+</p>
+
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>

@@ -1,0 +1,201 @@
+// Place all the styles related to the learningObjects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.material-detail{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.details{
+	border-bottom: 1px solid;
+	border-bottom-color: inherit;
+	margin-bottom: 10px;
+}
+
+.principal-title{
+	background-color: lavender;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.principal-title .title{
+	margin-left: 10px;
+	font-weight: bold;
+	color: darkslategrey;
+}
+
+.metadata{
+	background-color: whitesmoke;
+	margin-bottom: 10px;
+}
+
+.metadata .metadata-title{
+	margin-left: 10px;
+}
+
+.metadata-body{
+	margin-left: 10px;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+#general_keywords{
+	width: 755px;
+}
+
+#general_description{
+	height: 100px;
+}
+
+#learning_object_course_id{
+	width: 350px;
+}
+
+#learning_object_content_id{
+	width: 350px;
+}
+
+#organization_title{
+	width: 350px;
+}
+
+.material-table{
+	padding-left: 0px;
+	padding-right: 20px;
+}
+
+.material-row{
+	border-right-width: 4px;
+	height: 130px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	border: solid 1px;
+	border-color: whitesmoke;
+	padding-left: 10px;
+	padding-right: 5px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-radius: 8px;
+}
+
+.odd{
+    background: #F8FBEF;
+}
+
+.comment-div{
+	background-color: cadetblue;
+	margin-bottom: 9px;
+	margin-top: 30px;
+	border-radius: 8px;
+	padding-left: 20px;
+	height: 5px;
+}
+
+.comment-row-fluid{
+	margin-left: 10px;
+}
+.comment-row{
+	border: solid 1px;
+	border-right-width: 1px;
+	border-left-width: 2px;
+	border-color: whitesmoke;
+	border-radius: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	margin-right: 200px;
+	margin-left: 10px;
+	# height: 140px;
+}
+
+.reply{
+	margin-top: 40px;
+}
+
+.comment-message{
+	# height: 90px;
+}
+
+.nested_comments {
+  margin-left: 30px;
+}
+
+.nested_comments .nested_comments .nested_comments{
+  margin-left: 0;
+}
+
+.rating_div{
+	border: solid 1px;
+	border-radius: 10px;
+	border-color: darkgray;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.rate_div{
+	padding-top: 10px;
+}
+
+.simply_search{
+	float: left;
+	padding-left: 220px;
+}
+
+#link_to_advanced_search{
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#select_search_by{
+	width: 120px;
+}
+
+#separate_div{
+	clear: both;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+#category_value{
+	display: none;
+}
+.div-ayuda{
+	margin-bottom: 30px;
+    margin-left: 10px;
+    border: dashed 1px;
+    border-color: salmon;
+    border-radius: 10px;
+}
+.p-ayuda{
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: gray;
+}
+#input-keywords{
+	width: 650px;
+}
+#input-description{
+	width: 200px;
+	height: 100px;
+}
+
+#input-rightsdescription{
+	width: 650px;
+}
+
+.div-descarga{
+	margin-top: 13px;
+	margin-left: 46px;
+}

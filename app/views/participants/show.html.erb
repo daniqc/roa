@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course:</b>
+  <%= @participant.course_id %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @participant.role_id %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @participant.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_participant_path(@participant) %> |
+<%= link_to 'Back', participants_path %>

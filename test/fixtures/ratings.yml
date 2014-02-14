@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  person_id: 1
+  learning_object_id: 1
+  evaluation: 1
+  comment: MyString
+
+two:
+  person_id: 1
+  learning_object_id: 1
+  evaluation: 1
+  comment: MyString

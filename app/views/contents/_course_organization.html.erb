@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="span12">
+		<div id="accordion">
+			<% units.each do |unit| %>
+				<h3><%= unit.name %></h3>
+				<div>
+					<p>En esta sección puedes encontrar material respecto a los siguientes temas: </p>
+					<ul>
+					<% unit.children.each do |child| %>
+						<li><%= child.name %></li>
+					<% end %>
+					</ul>
+					<% i = LearningMaterial.where(:content_id => unit.id).count %>
+					<% if i > 0 %>
+						<div style="float:left;">						
+							<%= link_to "Ver material", learning_objects_path(:content => unit, :option => 2),{:class=>"btn btn-mini btn-success", :style=>"font-size:small; font-family:inherit; color:white;"} %>
+						</div>
+						<div id="available-material">
+							 | Disponibles: <%= i %>
+						</div>
+					<% else %>
+						<div>						
+							<p><span class="label label-info"> Sin material disponible! </span></p>
+						</div>
+					<% end %>					
+				</div>
+			<% end %>
+		</div>
+	</div> 
+	<div class="span6" id="material"></div>
+</div>

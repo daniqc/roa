@@ -1,0 +1,20 @@
+<div class="div-fluid">
+	<div class="page-header">
+      <h2><%= @metadata_schema.name %><small> Editing metadata</small></h2>
+    </div>
+    <div class="navbar">
+    	<div class="navbar-inner">
+    		<ul class="nav">
+    			<li>
+    				<%= link_to metadata_schemas_path do %>
+    				<i class="icon-chevron-left"></i>
+    				Back
+    				<% end %>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
+
+	<%= render 'form' %>
+
+</div>

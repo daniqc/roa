@@ -1,0 +1,13 @@
+<div><h4><%= organization.title%></h4></div>
+<br>
+ <div> 
+	<ul>
+		<% organization.items.each do |item| %>
+			<% if File.extname(item.resource_ref_id) == ".html" %>
+				<%= content_tag_for(:li, item, :class=>"resource_href") do %>
+					<%= link_to item.title, item.get_resource_url(learning_object,item.resource_ref_id), :target => "_blank" %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</ul>
+ </div>

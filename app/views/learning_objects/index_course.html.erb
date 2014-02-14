@@ -1,0 +1,31 @@
+<div class="div-fluid">
+  <div class="page-header">
+      <h4>Objetos de aprendizaje</h4>
+      <div>A continuación encontrarás el material asociado a: <%= link_to @course.name, learning_objects_path(:course => @course, :option=> 3) %> >> <%= @content.name %></div>
+  </div>
+  
+  <div class="container-fluid material-table">
+    <% @learning_objects.each do |learning_object| %>
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row-fluid material-row <%= cycle('anything','odd') %>">
+            <div class="span9">
+                <div><strong><%= link_to learning_object.name, learning_object %></strong></div>
+                <div><%= MetadataSchema.find_description(learning_object) %></div>
+                <br>
+                <div><strong>Author:</strong> <%= MetadataSchema.find_author(learning_object)%></div>
+                <div style="float: left;"><strong>Date add:</strong> <%= learning_object.created_at.strftime("%d %B %Y") %></div> 
+                <div style="float: left; padding-left: 15px;"><strong>Date modified:</strong> <%= learning_object.updated_at.strftime("%d %B %Y") %></div>
+            </div>
+            <div class="span3">
+              <div>Rating</div>
+                <%= rating_average learning_object %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <br />
+</div>

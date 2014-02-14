@@ -1,0 +1,13 @@
+<div class="div-fluid">
+    <div class="page-header">
+      <h3>Organización de "<%= @course.name%>"<small></small></h3>
+      <div><%= link_to learning_objects_path(:course => @course, :option=> 3), {:class => "btn btn-mini"} do %>
+      	<i class="icon-th"></i> Ver todo el material asociado
+      	<% end %>
+      </div>
+    </div>
+    <div id="course-organization-explanation">
+        A continuación se muestra el contenido del curso, donde podrás ver los objetos de aprendizaje asociados a cada tema.
+    </div>
+    <%= render :partial => "contents/course_organization", :locals => { :units => @course.contents.roots.order(:number) } %>
+</div>

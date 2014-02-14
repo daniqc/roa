@@ -1,0 +1,29 @@
+<h1>Listing resources</h1>
+
+<table>
+  <tr>
+    <th>Learning object</th>
+    <th>Identifier</th>
+    <th>Type</th>
+    <th>Principal resource ref</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resources.each do |resource| %>
+  <tr>
+    <td><%= resource.learning_object_id %></td>
+    <td><%= resource.identifier %></td>
+    <td><%= resource.type %></td>
+    <td><%= resource.principal_resource_ref %></td>
+    <td><%= link_to 'Show', resource %></td>
+    <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+    <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Resource', new_resource_path %>

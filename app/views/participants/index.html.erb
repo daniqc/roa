@@ -1,0 +1,48 @@
+<div class="div-fluid">
+  <div class="page-header">
+      <h2>Participants <small>from <%= @course.name %></small></h2>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li>
+          <%= link_to courses_path do %>
+            <i class="icon-chevron-left"></i>
+            Back
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_course_participant_path(@course) do %>
+            <i class="icon-plus-sign"></i>
+              New participant
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <th>Role</th>
+      <th>Person</th>
+      <th colspan="2">Actions</th>
+    </thead>
+    <tbody>
+      <% @participants.each do |participant| %>
+        <tr>
+          <td><%= participant.role.name %></td>
+          <td><%= participant.person.name %></td>
+          <td>
+            <%= link_to edit_participant_path(participant), {:class => "btn btn-mini", :title =>"Edit participant"} do %>
+              <i class="icon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to participant, :class => "btn btn-mini", method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="icon-trash"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

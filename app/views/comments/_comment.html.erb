@@ -1,0 +1,19 @@
+  <div class="comment-row <%= cycle('anything','odd') %>">
+    <div>
+	    <div style="float:left;">
+        <% if !comment.person.nil? %>
+          <strong><%= comment.person.name %></strong>
+        <% else %>
+          <strong>Soy el autor anonimo</strong>
+        <% end %>
+      </div>
+	    <div style="float:left;margin-left: 10px;"><p class="muted"> | <%= comment.created_at %></p></div>
+    </div>
+    <div class="comment-message" style="clear: both;">
+    	<%= comment.comment %>
+    </div>
+    <div class="reply-link">
+    	<%= link_to "Responder", new_learning_object_comment_path(learning_object, :parent_id => comment), :remote => :true %>
+    </div>
+  </div>
+  <div class="dialog" id="comment_div_<%= comment.id %>"></div> 

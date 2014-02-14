@@ -1,0 +1,11 @@
+<div class="Clear">
+	<span class="star-rating-control">
+		<div class="rating-cancel" style="display: none;"><a title="Cancel Rating"></a></div>
+	
+	  <%= radio_button_tag 'rating_star'+ rating.id.to_s, 1, rating.evaluation == 1 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ rating.id.to_s, 2, rating.evaluation == 2 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ rating.id.to_s, 3, rating.evaluation == 3 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ rating.id.to_s, 4, rating.evaluation == 4 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ rating.id.to_s, 5, rating.evaluation == 5 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>	
+	</span>
+</div>

@@ -1,0 +1,24 @@
+<div class="row-fluid metadata-body">
+	<div class="span7">
+		<div class="row-fluid">
+			<div class="span2">Title: </div>
+			<div class="span10"><%= text_field_tag(:organization_title) %></div>
+		</div>
+	</div>
+	<div class="span5">
+		<div class="row-fluid">
+			<div class="span3">Add Items </div>
+			<div class="span9">
+				<div class="row-fluid">
+					<div class="span5 btn btn-success fileinput-button">
+						<span>Select files...</span>
+						<%= file_field_tag 'new_item[]', multiple: true %>
+					</div>
+				</div>
+				<div id="progress">
+						<div class="bar" style="width: 0%;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

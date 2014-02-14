@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  professor_id: 1
+  class_type_id: 1
+  course_id: 1
+
+two:
+  professor_id: 1
+  class_type_id: 1
+  course_id: 1

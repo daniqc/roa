@@ -1,0 +1,11 @@
+	<span class="star-rating-control">
+		<div class="rating-cancel" style="display: none;"><a title="Cancel Rating"></a></div>
+	
+	  <%= radio_button_tag 'rating_star'+ learning_object.id.to_s, 1, av_rating == 1 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ learning_object.id.to_s, 2, av_rating == 2 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ learning_object.id.to_s, 3, av_rating == 3 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ learning_object.id.to_s, 4, av_rating == 4 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>
+	  <%= radio_button_tag 'rating_star'+ learning_object.id.to_s, 5, av_rating == 5 ? true : false, {:class=> "star", :disabled => "true", :style=>"display: none;"} %>	
+	</span>
+
+	<%= render :partial => 'ratings/star_rating_text', :locals => {:av_rating => av_rating } %>

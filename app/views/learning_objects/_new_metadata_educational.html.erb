@@ -1,0 +1,51 @@
+<div class="row-fluid metadata-body">
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span4">Interactivity Type: </div>
+			<div class="span8"><%= select_tag(:educational_interactivity_type, options_for_select(["Active", "Expositive","Mixed", "Undefined"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Learning Resource Type (*): </div>
+			<div class="span8"><%= text_field_tag(:educational_learning_resource_types) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Interactivity Level: </div>
+			<div class="span8"><%= select_tag(:educational_interactivity_level, options_for_select(["Very low", "Low","Medium", "High", "Very high"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Semantic Density: </div>
+			<div class="span8"><%= select_tag(:educational_semantic_density, options_for_select(["Very low", "Low","Medium", "High", "Very high"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Intended End User Role: </div>
+			<div class="span8"><%= select_tag(:educational_intended_end_user_role, options_for_select(["Author", "Learner","Manager", "Teacher"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Context: </div>
+			<div class="span8"><%= select_tag(:educational_context, options_for_select(["Continuous Formation", "Higher Education","Primary Education", "Professional Formation", "Secondary Education","University Pregrade", "University Postgrade", "Vocational Training"]),{:include_blank=>true}) %>
+			</div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span4">Typical Age Range: </div>
+			<div class="span8"><%= text_field_tag(:educational_typical_age_range) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Difficulty: </div>
+			<div class="span8"><%= select_tag(:educational_difficulty, options_for_select(["Very easy", "Easy","Medium", "Difficult","Very difficult"]),{:include_blank=>true}) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Typical Learning Time: </div>
+			<div class="span8"><%= text_field_tag(:educational_typical_learning_time) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Description: </div>
+			<div class="span8"><%= text_field_tag(:educational_description) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Language: </div>
+			<div class="span8"><%= select_tag(:educational_language, options_for_select(["es", "en"]),{:include_blank=>true}) %></div>
+		</div>
+	</div>
+</div>

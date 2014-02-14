@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  course_id: 1
+  number: 1
+  name: MyString
+  hours: 9.99
+  in_hours: 9.99
+  out_hours: 9.99
+
+two:
+  course_id: 1
+  number: 1
+  name: MyString
+  hours: 9.99
+  in_hours: 9.99
+  out_hours: 9.99

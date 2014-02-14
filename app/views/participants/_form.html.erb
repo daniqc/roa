@@ -1,0 +1,36 @@
+<%= form_for [@course,@participant] do |f| %>
+  <% if @participant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+      <% @participant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="well well-small">
+        <b>Select the role for the new participant</b>
+  </div>
+  <div class="radio">
+    <% Role.all.each do |r| %>
+      <%= f.radio_button :role_id, r.id %>
+      <%= f.label :role_id, r.name%>
+    <% end %>
+  </div>
+  
+  <div class="well well-small">
+          <b>Select the new participant from the list</b>
+    </div>
+  <div class="field">
+    <%= f.label :person_id %>
+    <%#= f.collection_select :person_id, Person.new_participants(@participant.course_id), :id, :name %>
+    <%= f.collection_select :person_id, Person.all, :id, :name %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+  </div>
+<% end %>

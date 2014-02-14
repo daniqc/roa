@@ -1,0 +1,19 @@
+// Place all the styles related to the contents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#accordion{
+	font-size: small;
+	font-family: inherit;
+}
+
+#material-toggle{
+	display: none;
+}
+
+#available-material{
+	float: left;
+	margin-top: 6px;
+	margin-left: 10px;
+	color: darkgrey;
+}

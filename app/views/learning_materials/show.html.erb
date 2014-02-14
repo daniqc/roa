@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @learning_material.content_id %>
+</p>
+
+<p>
+  <b>Learning object:</b>
+  <%= @learning_material.learning_object_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_learning_material_path(@learning_material) %> |
+<%= link_to 'Back', learning_materials_path %>

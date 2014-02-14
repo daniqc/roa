@@ -1,0 +1,31 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Organization</th>
+    <th>Identifier</th>
+    <th>Title</th>
+    <th>Isvisible</th>
+    <th>Resource ref</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.organization_id %></td>
+    <td><%= item.identifier %></td>
+    <td><%= item.title %></td>
+    <td><%= item.isvisible %></td>
+    <td><%= item.resource_ref_id %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

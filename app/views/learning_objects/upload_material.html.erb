@@ -1,0 +1,24 @@
+<div class="div-fluid">
+    <div class="page-header">
+      <h2>Aportar material<small></small></h2>
+    </div>
+    
+	<div class="tabbable"> <!-- Only required for left/right tabs -->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Importar archivo .zip</a></li>
+        <li><a href="#tab2" data-toggle="tab">Subir objeto HTML</a></li>
+      </ul>
+      <div class="tab-content" style="overflow: hidden;">
+        <div class="tab-pane active" id="tab1">
+          <%= form_tag unzip_lo_path, :multipart => true do %>
+            <%= render :partial => "learning_objects/import_object" %>
+          <% end %>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <%= form_tag new_material_path, :multipart => true do %>
+            <%= render :partial => "learning_objects/new_object", :locals => {  } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

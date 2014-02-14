@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  metadata_schema_id: 
+  learning_object_id: 
+  value: MyString
+
+two:
+  metadata_schema_id: 
+  learning_object_id: 
+  value: MyString

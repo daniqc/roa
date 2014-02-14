@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Organization:</b>
+  <%= @item.organization_id %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @item.identifier %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @item.title %>
+</p>
+
+<p>
+  <b>Isvisible:</b>
+  <%= @item.isvisible %>
+</p>
+
+<p>
+  <b>Resource ref:</b>
+  <%= @item.resource_ref_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

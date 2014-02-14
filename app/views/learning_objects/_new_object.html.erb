@@ -1,0 +1,21 @@
+<div class="div-ayuda">
+	<p class="p-ayuda">Mediante esta opción puedes subir los archivos HTML que conforman el objeto de aprendizaje. No olvides importar todos los archivos para que este funcione correctamente. Más abajo debes ingresar sus metadatos para que sea almacenado por el sistema.
+	</p>
+</div>
+<div class="row-fluid principal-title"><div class="title">Organización</div></div>
+	<%= render :partial => "learning_objects/new_organization" %>
+<div class="row-fluid principal-title"><div class="title">Elige el tópico asociado</div></div>
+	<%= render :partial => "learning_objects/new_associated_topic" %>
+<div class="row-fluid principal-title"><div class="title">Metadatos</div></div>
+<div class="row-fluid metadata"><div class="metadata-title">General</div></div>
+	<%= render :partial => "learning_objects/new_metadata_general" %>
+<div class="row-fluid metadata"><div class="metadata-title">Ciclo de vida</div></div>
+	<%= render :partial => "learning_objects/new_metadata_life_cycle" %>
+<div class="row-fluid metadata"><div class="metadata-title">Educacional</div></div>
+	<%= render :partial => "learning_objects/new_metadata_educational" %>
+<div class="row-fluid metadata"><div class="metadata-title">Derechos</div></div>
+	<%= render :partial => "learning_objects/new_metadata_rights" %>
+<div class="row-fluid principal-title"><div class="title">Subir material</div></div>
+<div class="submit-tag">
+   <div><%= submit_tag 'Upload material!', :class=> "btn btn-small btn-success", :disabled => true %></div>
+</div>

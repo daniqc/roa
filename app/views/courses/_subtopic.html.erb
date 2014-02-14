@@ -1,0 +1,16 @@
+<!-- <td>
+	<%= link_to upload_material_path(content), :class => "btn btn-mini", :title => "Upload a learning object" do %>
+		<i class="icon-upload"></i>
+	<% end %>
+</td> -->
+<td></td>
+<td>
+  <%= link_to edit_subtopic_path(content), :class => "btn btn-mini", :title => "Edit Subtopic" do %>
+    <i class="icon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to content, :class => "btn btn-mini", :title => "Delete subtopic", method: :delete, data: { confirm: 'Are you sure?' } do %>
+  	<i class="icon-trash"></i>
+  <% end %>
+</td> 

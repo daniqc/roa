@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  code: MyString
+  name: MyString
+  tel_t: 
+  tel_e: 
+  tel_l: 
+  hh_week: 
+  version: 
+  description: MyText
+  category_id: 1
+  career_id: 1
+  department_id: 1
+
+two:
+  code: MyString
+  name: MyString
+  tel_t: 
+  tel_e: 
+  tel_l: 
+  hh_week: 
+  version: 
+  description: MyText
+  category_id: 1
+  career_id: 1
+  department_id: 1

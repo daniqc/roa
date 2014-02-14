@@ -1,0 +1,13 @@
+<p>
+  <b>Course class:</b>
+  <%= @class_schedule.course_class_id %>
+</p>
+
+<p>
+  <b>Schedule:</b>
+  <%= @class_schedule.schedule_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_class_schedule_path(@class_schedule) %> |
+<%= link_to 'Back', class_schedules_path %>

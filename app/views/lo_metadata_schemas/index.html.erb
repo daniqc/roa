@@ -1,0 +1,27 @@
+<h1>Listing lo_metadata_schemas</h1>
+
+<table>
+  <tr>
+    <th>Metadata schema</th>
+    <th>Learning object</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lo_metadata_schemas.each do |lo_metadata_schema| %>
+  <tr>
+    <td><%= lo_metadata_schema.metadata_schema_id %></td>
+    <td><%= lo_metadata_schema.learning_object_id %></td>
+    <td><%= lo_metadata_schema.value %></td>
+    <td><%= link_to 'Show', lo_metadata_schema %></td>
+    <td><%= link_to 'Edit', edit_lo_metadata_schema_path(lo_metadata_schema) %></td>
+    <td><%= link_to 'Destroy', lo_metadata_schema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lo metadata schema', new_lo_metadata_schema_path %>

@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require jquery.ui.dialog
+ *= require_self
+ *= require jquery.ui.all
+ *= require chosen
+ *= require jquery.fileupload-ui
+ *= require jquery-star-rating
+ *= require_tree .
+ */
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+ /* Otros estilos */
+
+body {
+	position: relative;
+	padding-top: 40px;
+	font-size: small;
+}
+
+ /* Tabla ajustada al contenido */
+.table-nonfluid {
+   width: auto;
+}
+.div-fluid {
+	margin-bottom: 2px;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 8px 15px 15px;
+}

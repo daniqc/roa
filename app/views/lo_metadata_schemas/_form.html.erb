@@ -1,0 +1,29 @@
+<%= form_for(@lo_metadata_schema) do |f| %>
+  <% if @lo_metadata_schema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lo_metadata_schema.errors.count, "error") %> prohibited this lo_metadata_schema from being saved:</h2>
+
+      <ul>
+      <% @lo_metadata_schema.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :metadata_schema_id %><br />
+    <%= f.text_field :metadata_schema_id %>
+  </div>
+  <div class="field">
+    <%= f.label :learning_object_id %><br />
+    <%= f.text_field :learning_object_id %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  learning_object_id: 
+  identifier: MyString
+  title: MyString
+  structure: MyString
+
+two:
+  learning_object_id: 
+  identifier: MyString
+  title: MyString
+  structure: MyString

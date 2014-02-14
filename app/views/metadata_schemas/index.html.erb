@@ -1,0 +1,29 @@
+<div class="div-fluid">
+  <div class="page-header">
+    <h2>Metadata <small>Learning Object Metadata</small></h2>
+  </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav">
+            <li>
+              <%= link_to new_metadata_schema_path, :remote => true do %>
+                <i class="icon-plus-sign"></i>
+                New metadata
+              <% end %>
+            </li>
+        </ul>
+    </div>
+  </div>
+  
+  <div id="metadata_div"></div>
+  
+  <table class="table table-nonfluid table-bordered table-hover">
+    <thead>
+      <th>Name</th>
+      <th colspan="3">Actions</th>
+    </thead>
+    <tbody id="metadata_schema_table">
+      <%= nested_metadata_schema @metadata_schemas %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="div-fluid">
+    <div class="page-header">
+      <h3>Listado de cursos disponibles<small></small></h2>
+      <div>En esta sección puedes ver la organización del curso y los objetos de aprendizaje asociados a él.</div>
+    </div>
+    
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>Código</th>
+        <th>Nombre curso</th>
+        <th>Categoría</th>
+        <th>Carrera</th>
+        <th>Descripción</th>
+        <th>Material</th>
+      </thead>
+      <tbody>
+        <% @courses.each do |course| %>
+        <tr>
+            <td><%= course.code %></td>
+            <td><%= link_to course.name, course_organization_path(:id => course.id), :title =>"Ver organización del curso (temas)" %></td>
+            <td><%= course.category.name %></td>
+            <td><%= course.career.name %></td>
+            <td><%= course.description %></td>
+            <td>
+                <%= link_to learning_objects_path(:course => course, :option=> 3), {:class => "btn btn-mini", :title =>"Ver todo el material asociado a este curso"} do %>
+                    <i class="icon-folder-close"></i>
+                    (<%= course.learning_objects.count %>)
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+
+    <br />
+
+    <%#div class="dialog" title="Course" id="new_course_div"></div%>
+</div>
