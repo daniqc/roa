@@ -4,6 +4,8 @@ Roa::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'upload_material', to: 'learning_objects#upload_material', as: 'upload_material'
   get 'course_organization', to: 'courses#course_organization', as: 'course_organization'
+  get 'methodologies', to: 'application#help_methodologies', as: 'methodologies'
+  get 'aoddei', to: 'application#aoddei', as: 'aoddei'
   post 'unzip_lo', to: 'learning_objects#unzip_lo', as: 'unzip_lo'
   post 'new_material', to: 'learning_objects#new_material', as: 'new_material'
 

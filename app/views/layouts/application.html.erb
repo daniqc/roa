@@ -27,7 +27,12 @@
 					<!-- Links (izq) -->
 					<ul class="nav">
 						<li><a href="#">Home</a></li>
-						<li><a href="#about">Ayuda</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Ayuda <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li> <%= link_to "Metodologías", methodologies_path(:option => 1) %></li>
+							</ul>
+						</li>
 						<!-- <li><a href="#contact">Statistics</a></li> -->
 			        </ul>
 
