@@ -46,11 +46,10 @@ test:
   username: postgres
   password: homero
 
-#Esto lo comento
-#production:
-#  adapter: postgresql
-#  encoding: unicode
-#  database: roa_production
-#  pool: 5
-#  username: roa
-#  password:
+production:
+ adapter: postgresql
+ encoding: unicode
+ database: roa_production
+ pool: 5
+ username: roa
+ password: homero
