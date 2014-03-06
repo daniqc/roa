@@ -1,0 +1,12 @@
+<div class="input-append simply_search">
+  <%= form_tag learning_objects_path, :method => "get" do %>
+      <div style="float:left;">
+        <%= select_tag(:search_by, options_for_select([['Nombre', 1], ['Autor', 2], ['Categoría', 3], ['Palabras clave', 4]], params[:search_by]), :id=>"select_search_by") %>
+      </div>
+      <div style="float:left; width:300px;">
+        <%= text_field_tag :query, params[:query], :id => "query_text_field", :style=>"width:300px;" %>
+        <%= collection_select(nil, :category_id, Course.order(:name), :id, :name, { :include_blank => true}, {:id=> "category_value", :style => "width:300px;"}) %>
+        <%= submit_tag "Buscar", :name => nil, :class=> "btn"%>
+      </div>
+  <% end %>
+  </div>

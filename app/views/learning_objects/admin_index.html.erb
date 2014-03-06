@@ -1,0 +1,37 @@
+<div class="div-fluid">
+    <div class="page-header">
+      <h2>Administración de material</h2>
+    </div>
+    
+    <%= render 'admin_search_form' %>
+    
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>Name</th>
+        <th>Fecha de creación</th>
+        <th colspan = "2">Acciones</th>
+      </thead>
+      <tbody>
+        <% @learning_objects.each do |lo| %>
+        <tr>
+            <td><strong><%= link_to lo.name, lo %></strong></td>
+            <td><%= lo.created_at.strftime("%d %B %Y") %></td>
+            <td>
+                <%= link_to edit_learning_object_path(lo), {:class => "btn btn-mini", :title =>"Editar OA"} do %>
+                    <i class="icon-edit"></i>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to lo, :class => "btn btn-mini", method: :delete, data: { confirm: '¿Está seguro que desea eliminar?' } do %>
+                    <i class="icon-trash"></i>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+    </table>
+
+    <br />
+
+    <%#div class="dialog" title="Course" id="new_course_div"></div%>
+</div>

@@ -37,6 +37,15 @@ class LearningObjectsController < ApplicationController
     # @learning_objects = LearningObject.page(params[:page]).per_page(5)
   end
 
+  def admin_material_search
+      @learning_objects = LearningObject.search(params[:query], params[:search_by], params[:category_id])
+
+      respond_to do |format|
+        format.html { render 'admin_index'}
+        format.json { render json: @learning_objects }
+      end
+  end
+
   # GET /learning_objects/1
   # GET /learning_objects/1.json
   def show

@@ -8,6 +8,7 @@ Roa::Application.routes.draw do
   get 'aoddei', to: 'application#aoddei', as: 'aoddei'
   post 'unzip_lo', to: 'learning_objects#unzip_lo', as: 'unzip_lo'
   post 'new_material', to: 'learning_objects#new_material', as: 'new_material'
+  get 'admin_material_search', to: 'learning_objects#admin_material_search', as: 'admin_material_search'
 
   resources :users
   resources :people

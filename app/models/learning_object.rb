@@ -71,12 +71,14 @@ class LearningObject < ActiveRecord::Base
     if query.present? || category_value.present?
       case search_by
         when "1"
-          # logger.debug "ESTOY EN EL SEARCH BY 1 POR NOMBRE"
+          logger.debug "ESTOY EN EL SEARCH BY 1 POR NOMBRE"
           where('name @@ ?', query).order("created_at desc")
+          # where("name like ?" , query).order("created_at desc")
         when "2" 
           # logger.debug "ESTOY EN EL SEARCH BY 2 POR AUTOR"
           author_id = MetadataSchema.life_cycle.where("name like ?", "%ole%").first.id
-          result = LoMetadataSchema.where('metadata_schema_id = ? and value @@ ?', author_id, query).map(&:learning_object_id)
+          # result = LoMetadataSchema.where('metadata_schema_id = ? and value = @@ ?', author_id, query).map(&:learning_object_id)
+          result = LoMetadataSchema.where('metadata_schema_id = ? and value like ?', author_id, query).map(&:learning_object_id)
           where(:id => result).order("created_at desc")
         when "3"
           # logger.debug "ESTOY EN EL SEARCH BY 3 POR CATEGORiA"
@@ -84,21 +86,13 @@ class LearningObject < ActiveRecord::Base
         when "4"
           # logger.debug "ESTOY EN EL SEARCH BY 4 POR PALABRAS CLAVE"
           keywords_id = MetadataSchema.general.where("name like ?", "%eyword%").first.id
-          result = LoMetadataSchema.where('metadata_schema_id = ? and value @@ ?', keywords_id, query).map(&:learning_object_id)
+          # result = LoMetadataSchema.where('metadata_schema_id = ? and value @@ ?', keywords_id, query).map(&:learning_object_id)
+          result = LoMetadataSchema.where('metadata_schema_id = ? and value = ?', keywords_id, query).map(&:learning_object_id)
            where(:id => result).order("created_at desc")
         else
           # logger.debug "ESTOY EN EL ELSE"
           order("created_at desc").all
       end
-      #description_id = MetadataSchema.general.where("name like ?", "%escriptio%").first.id
-      
-      #result = where('to_tsvector(name) @@ plainto_tsquery(?)', query).map(&:id)
-      # + LoMetadataSchema.where('metadata_schema_id = ? and to_tsvector(value) @@ plainto_tsquery(?)', description_id, query).map(&:learning_object_id)
-      #q = query.gsub!(' ', '|')
-      #logger.debug "+++++las palabras son: '#{q}'"
-      # result = where('name @@ ?', q).map(&:id) +
-      # LoMetadataSchema.where('metadata_schema_id = ? and value @@ ?', description_id, q).map(&:learning_object_id)
-      # where(:id => result)
     else
       order("created_at desc").all
     end
