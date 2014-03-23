@@ -37,6 +37,7 @@ Roa::Application.routes.draw do
     end
     resources :comments
     resources :ratings
+    member { get :download_material }
   end
 
 

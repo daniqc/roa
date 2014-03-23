@@ -35,7 +35,6 @@ class LearningObject < ActiveRecord::Base
   	# Dir.glob("/system/learning_objects/"+id.to_s+"/*.zip")
   	#Rails.root.to_s + "/public/system/documents/" + self.project.id.to_s
     Rails.root.to_s + "/public/system/learning_objects/" +id.to_s+"/"+file_file_name.to_s
-    logger.debug "#{Rails.root.to_s + "/public/system/learning_objects/" +id.to_s+"/"+file_file_name.to_s}"
   end
 
   def get_folder_path
@@ -44,6 +43,10 @@ class LearningObject < ActiveRecord::Base
 
   def get_xml_files
   	"public/system/learning_objects/"+id.to_s+"/*.xml"
+  end
+
+  def get_zip_file
+    "public/system/learning_objects/"+id.to_s+"/*.zip"
   end
 
   def get_file_url

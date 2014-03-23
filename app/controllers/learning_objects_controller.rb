@@ -1,4 +1,5 @@
 class LearningObjectsController < ApplicationController
+
   # GET /learning_objects
   # GET /learning_objects.json
   def index
@@ -124,6 +125,7 @@ class LearningObjectsController < ApplicationController
     #logger.debug "THE CONTENT IS #{content.name}"
   end
 
+  
   # Cuando el usuario elige la opcion de subir un zip file
   def unzip_lo
     
@@ -152,6 +154,9 @@ class LearningObjectsController < ApplicationController
 
     # Leo el archivo xml
     read_manifest_xml(@learning_object)
+
+    #Elimino el zip file
+    File.delete("#{Rails.root}/public/system/learning_objects/" +@learning_object.id.to_s+"/"+@learning_object.file_file_name.to_s)
 
     respond_to do |format|
       format.html { render "learning_objects/upload_lo", notice: 'The file was successfully upload!' }
@@ -495,5 +500,27 @@ class LearningObjectsController < ApplicationController
   #       ResourceFile.create_resource_file(db_resource,file_href)
   #     end
   # end
+
+  def download_material
+    @learning_object = LearningObject.find(params[:id])
+    material_path = "#{Rails.root}/public/system/learning_objects/" +@learning_object.id.to_s+"/"+@learning_object.file_file_name.to_s
+
+    File.delete(material_path) if File.exist?(material_path)
+    
+    folder = @learning_object.get_folder_path
+    input_filenames = Dir.entries(folder)
+    
+    zipfile_name = folder + "/#{@learning_object.file_file_name}"
+    
+    Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
+      input_filenames.reject {|fn| File.directory?(fn) }.each do |filename|
+        logger.debug "++++estoy enviando: #{filename}"
+        zipfile.add(filename, folder + '/' + filename)
+        # zipfile.add(filename.sub(folder+'/',''), filename)
+      end
+      # zipfile.get_output_stream("myFile") { |os| os.write "myFile contains just this" }
+    end
+    send_file zipfile_name, :type => 'application/zip', :disposition => 'attachment', :filename => @learning_object.file_file_name
+  end
 
 end

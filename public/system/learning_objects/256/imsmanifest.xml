@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.5 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-73747363A79ABB72CBE2307B91FADD8F" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <imsmd:lom>
+      <imsmd:general>
+        <imsmd:identifier>OA protocolos de seguridad para Internet</imsmd:identifier>
+        <imsmd:title>
+          <imsmd:langstring xml:lang="en">Protocolos de seguridad para Internet</imsmd:langstring>
+        </imsmd:title>
+        <imsmd:catalogentry>
+          <imsmd:catalog>no será llenado</imsmd:catalog>
+          <imsmd:entry>
+            <imsmd:langstring xml:lang="en">no será llenado</imsmd:langstring>
+          </imsmd:entry>
+        </imsmd:catalogentry>
+        <imsmd:language>es</imsmd:language>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Objetos de aprendizaje de protocolos de seguridad para Internet, sus fundamentos, funcionamiento y principales características.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:keyword>
+          <imsmd:langstring xml:lang="en">Fundamentos y Características de IPSec, Protocolo AH de IPSec, Protocolo ESP de IPSec, Protocolo SSL.</imsmd:langstring>
+        </imsmd:keyword>
+        <imsmd:coverage>
+          <imsmd:langstring xml:lang="en">Tecnologías de información.</imsmd:langstring>
+        </imsmd:coverage>
+        <imsmd:structure>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Linear</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:structure>
+        <imsmd:aggregationlevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">2</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:aggregationlevel>
+      </imsmd:general>
+      <imsmd:lifecycle>
+        <imsmd:version>
+          <imsmd:langstring xml:lang="en">1.0</imsmd:langstring>
+        </imsmd:version>
+        <imsmd:status>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Revised</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:status>
+        <imsmd:contribute>
+          <imsmd:role>
+            <imsmd:source>
+              <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+            </imsmd:source>
+            <imsmd:value>
+              <imsmd:langstring xml:lang="en">Author</imsmd:langstring>
+            </imsmd:value>
+          </imsmd:role>
+          <imsmd:centity>
+            <imsmd:vcard>Pablo Pulgar López</imsmd:vcard>
+          </imsmd:centity>
+          <imsmd:date>
+            <imsmd:datetime>2013-08-13</imsmd:datetime>
+          </imsmd:date>
+        </imsmd:contribute>
+        <imsmd:contribute>
+          <imsmd:role>
+            <imsmd:source>
+              <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+            </imsmd:source>
+            <imsmd:value>
+              <imsmd:langstring xml:lang="en">Educational Validator</imsmd:langstring>
+            </imsmd:value>
+          </imsmd:role>
+          <imsmd:centity>
+            <imsmd:vcard>Dra. Rosa Muñoz Calanchie. Universidad de Santiago de Chile.</imsmd:vcard>
+          </imsmd:centity>
+          <imsmd:date>
+            <imsmd:datetime>2013-08-30</imsmd:datetime>
+          </imsmd:date>
+        </imsmd:contribute>
+      </imsmd:lifecycle>
+      <imsmd:metametadata>
+        <imsmd:language>es</imsmd:language>
+      </imsmd:metametadata>
+      <imsmd:educational>
+        <imsmd:interactivitytype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Mixed</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitytype>
+        <imsmd:learningresourcetype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Figure, diagram, tables</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:learningresourcetype>
+        <imsmd:interactivitylevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">high</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitylevel>
+        <imsmd:semanticdensity>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">medium - high</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:semanticdensity>
+        <imsmd:intendedenduserrole>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Learner</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:intendedenduserrole>
+        <imsmd:context>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Higher Education</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:context>
+        <imsmd:typicalagerange>
+          <imsmd:langstring xml:lang="en">20 - 30</imsmd:langstring>
+        </imsmd:typicalagerange>
+        <imsmd:difficulty>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">medium - difficult</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:difficulty>
+        <imsmd:typicallearningtime>
+          <imsmd:datetime>25 minutos</imsmd:datetime>
+        </imsmd:typicallearningtime>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Comprensión de forma descriptiva y conceptual de fundamentos de protocolos de seguridad para Internet.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:language>es</imsmd:language>
+      </imsmd:educational>
+      <imsmd:rights>
+        <imsmd:cost>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:cost>
+        <imsmd:copyrightandotherrestrictions>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:copyrightandotherrestrictions>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Este es un recurso que no está sujeto a derechos de autor. Es un tipo de licencia GPL.</imsmd:langstring>
+        </imsmd:description>
+      </imsmd:rights>
+    </imsmd:lom>
+  </metadata>
+  <organizations default="ORG-48D6A2F04E4CDE6854AC8FB137395291">
+    <organization identifier="ORG-48D6A2F04E4CDE6854AC8FB137395291" structure="hierarchical">
+      <title>Temáticas</title>
+      <item identifier="ITEM-E25FFF7704A9A0748ADAF0F687357B22" isvisible="true" identifierref="RES-00276F96E7C6B8EFE95F53AC64F014F4">
+        <title>OA_Fundamentos_y_características_de_IPSec</title>
+      </item>
+      <item identifier="ITEM-136E9A597706F74D8A605130467E53FE" isvisible="true" identifierref="RES-D8C932E984BFD82D1E20DBF1E595C4F2">
+        <title>OA_Protocolo_AH_de_IPSec</title>
+      </item>
+      <item identifier="ITEM-14638472AB4EA4EA4E8D208B133C9D28" isvisible="true" identifierref="RES-2A8D4FAD0A590E395B36312A6B5EE03D">
+        <title>OA_Protocolo_ESP_de_IPSec</title>
+      </item>
+      <item identifier="ITEM-620459F4547B72160B334DA5E0CD12A6" isvisible="true" identifierref="RES-3F2737C049F3869006259F1EBBE7C660">
+        <title>OA_Protocolo_SSL</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-00276F96E7C6B8EFE95F53AC64F014F4" type="webcontent" href="OA_Fundamentos_y_características_de_IPSec.html">
+      <file href="OA_Fundamentos_y_características_de_IPSec.html" />
+    </resource>
+    <resource identifier="RES-D8C932E984BFD82D1E20DBF1E595C4F2" type="webcontent" href="OA_Protocolo_AH_de_IPSec.html">
+      <file href="OA_Protocolo_AH_de_IPSec.html" />
+    </resource>
+    <resource identifier="RES-2A8D4FAD0A590E395B36312A6B5EE03D" type="webcontent" href="OA_Protocolo_ESP_de_IPSec.html">
+      <file href="OA_Protocolo_ESP_de_IPSec.html" />
+    </resource>
+    <resource identifier="RES-3F2737C049F3869006259F1EBBE7C660" type="webcontent" href="OA_Protocolo_SSL.html">
+      <file href="OA_Protocolo_SSL.html" />
+    </resource>
+  </resources>
+</manifest>
+

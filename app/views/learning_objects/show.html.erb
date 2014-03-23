@@ -52,7 +52,9 @@
         </div>
         <div class="span3">
           <div class="div-descarga">
-            <a class="btn btn-small btn-info" href="#"><i class="icon-download icon-white"></i> Descarga este material</a>
+            <%= link_to download_material_learning_object_path(@learning_object), :class =>"btn btn-small btn-info" do %>
+              <i class="icon-download icon-white"></i> Descarga este material
+            <% end %> 
           </div>
         </div>
       </div>
