@@ -24,7 +24,7 @@
             <td>
                 <%= link_to learning_objects_path(:course => course, :option=> 3), {:class => "btn btn-mini", :title =>"Ver todo el material asociado a este curso"} do %>
                     <i class="icon-folder-close"></i>
-                    (<%= course.learning_objects.count %>)
+                    (<%= course.learning_objects.group_by(&:id).count %>)
                 <% end %>
             </td>
         </tr>

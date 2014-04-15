@@ -1,0 +1,10 @@
+<div class="row-fluid metadata-body">
+	<div class="span7">
+		<div class="row-fluid">
+			<div class="span2">Title: </div>
+			<% organization_title = obtain_organization_title(@learning_object) %>
+			<%= hidden_field_tag(:organization_title_id, organization_title.id)%>
+			<div class="span10"><%= text_field_tag(:organization_title, organization_title.title) %></div>
+		</div>
+	</div>
+</div>

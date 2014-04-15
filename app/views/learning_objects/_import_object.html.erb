@@ -14,18 +14,8 @@
 	<div class="row-fluid metadata-body">
 		<div class="span12">
 			<div class="row-fluid">
-				<div class="span2">Categoría: </div>
-				<div class="span10">
-					<%= collection_select(:learning_object, :course_id, Course.order(:name), :id, :name, { :include_blank => true }, { :class=> "learning_course_id" }) %>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span2">Tema: </div>
-				<div class="span10"><%= grouped_collection_select(:learning_object, :content_id, Course.order(:name), :topics, :name,:id, :name, { :include_blank => true }, { :class=> "learning_content_id" }) %>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div><%= link_to "Agregar categoría "%></div>
+				<div class="span2">Tema </div>
+				<div class="span10"><%= select_tag(:content_id, option_groups_from_collection_for_select( Course.order(:name), :topics, :name, :id, :name), {:id => "import_object_category_select", :multiple => true}) %></div>
 			</div>
 		</div>	
 	</div>

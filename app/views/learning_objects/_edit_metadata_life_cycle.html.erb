@@ -1,0 +1,37 @@
+<div class="row-fluid metadata-body">
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span3">Version: </div>
+			<% life_cycle_version = obtain_life_cycle_version(@learning_object,@metadata_life_cycle) %>
+			<%= hidden_field_tag(:life_cycle_version_id, life_cycle_version.id)%>
+			<div class="span9"><%= text_field_tag(:life_cycle_version, life_cycle_version.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Status: </div>
+			<% life_cycle_status = obtain_life_cycle_status(@learning_object,@metadata_life_cycle) %>
+			<%= hidden_field_tag(:life_cycle_status_id, life_cycle_status.id)%>
+			<div class="span9"><%#= select_tag(:life_cycle_status, options_for_select(["Draft", "Final", "Revised", "Unavailable"],life_cycle_status.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:life_cycle_status, life_cycle_status.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Author: </div>
+			<% life_cycle_contribute_role = obtain_life_cycle_contribute_role(@learning_object, @metadata_life_cycle) %>
+			<%= hidden_field_tag(:life_cycle_contribute_role_id, life_cycle_contribute_role.id)%>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_role, life_cycle_contribute_role.value) %></div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span3">Contribute entity: </div>
+			<% life_cycle_contribute_entity = obtain_life_cycle_contribute_entity(@learning_object,@metadata_life_cycle) %>
+			<%= hidden_field_tag(:life_cycle_contribute_entity_id, life_cycle_contribute_entity.id)%>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_entity,life_cycle_contribute_entity.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Contribute Date: </div>
+			<% life_cycle_contribute_date = obtain_life_cycle_contribute_date(@learning_object,@metadata_life_cycle) %>
+			<%= hidden_field_tag(:life_cycle_contribute_date_id, life_cycle_contribute_date.id)%>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_date,life_cycle_contribute_date.value) %></div>
+		</div>
+	</div>	
+</div>

@@ -3,8 +3,6 @@ class LearningObjectsController < ApplicationController
   # GET /learning_objects
   # GET /learning_objects.json
   def index
-    # @learning_objects = LearningObject.all
-    # @learning_objects = LearningObject.last(10).reverse
     option = params[:option]
     
     case option
@@ -17,9 +15,9 @@ class LearningObjectsController < ApplicationController
           format.html { render 'index_course'}
           format.json { render json: @learning_objects }
         end
-      when "3"
+      when "3" # Cuando accedo desde la vista de cursos
         @course = Course.find(params[:course])
-        @learning_objects = @course.learning_objects
+        @learning_objects = @course.learning_objects.uniq #uniq es para PostgreSQL
 
         respond_to do |format|
           format.html { render 'course_material'}
@@ -33,9 +31,6 @@ class LearningObjectsController < ApplicationController
           format.json { render json: @learning_objects }
         end
     end    
-    
-    # @learning_objects.paginate(:page => params[:page]).order('id DESC')
-    # @learning_objects = LearningObject.page(params[:page]).per_page(5)
   end
 
   def admin_material_search
@@ -74,6 +69,10 @@ class LearningObjectsController < ApplicationController
   # GET /learning_objects/1/edit
   def edit
     @learning_object = LearningObject.find(params[:id])
+    @metadata_general = @learning_object.metadata_general
+    @metadata_life_cycle = @learning_object.metadata_life_cycle
+    @metadata_educational = @learning_object.metadata_educational
+    @metadata_rights = @learning_object.metadata_rights
   end
 
   # POST /learning_objects
@@ -95,16 +94,64 @@ class LearningObjectsController < ApplicationController
   # PUT /learning_objects/1
   # PUT /learning_objects/1.json
   def update
+    # render :nothing => true
     @learning_object = LearningObject.find(params[:id])
 
+    # Actualizo el titulo de la organizacion
+    Organization.update_title(params[:organization_title_id], params[:organization_title])
+
+    # Actualizo los contenidos
+    LearningMaterial.update_contents(@learning_object, params[:content_id])
+
+    # Actualizo los metadatos generales
+    LoMetadataSchema.update_general_metadata(
+      params[:general_title_id], params[:general_title],
+      params[:general_identifier_id], params[:general_identifier],
+      params[:general_languages_id], params[:general_languages],
+      params[:general_coverage_id], params[:general_coverage],
+      params[:general_structure_id], params[:general_structure],
+      params[:general_aggregation_level_id], params[:general_aggregation_level],
+      params[:general_description_id], params[:general_description],
+      params[:general_keywords_id], params[:general_keywords])
+
+    # Actualizo los metadatos del ciclo de vida
+    LoMetadataSchema.update_life_cycle_metadata(
+      params[:life_cycle_version_id], params[:life_cycle_version],
+      params[:life_cycle_status_id], params[:life_cycle_status],
+      params[:life_cycle_contribute_role_id], params[:life_cycle_contribute_role],
+      params[:life_cycle_contribute_entity_id], params[:life_cycle_contribute_entity],
+      params[:life_cycle_contribute_date_id], params[:life_cycle_contribute_date])
+
+    # Actualizo los metadatos educacionales
+    LoMetadataSchema.update_educational_metadata(
+      params[:educational_interactivity_type_id], params[:educational_interactivity_type],
+      params[:educational_learning_resource_types_id], params[:educational_learning_resource_types],
+      params[:educational_interactivity_level_id], params[:educational_interactivity_level],
+      params[:educational_semantic_density_id], params[:educational_semantic_density],
+      params[:educational_intended_end_user_role_id], params[:educational_intended_end_user_role],
+      params[:educational_context_id], params[:educational_context],
+      params[:educational_typical_age_range_id], params[:educational_typical_age_range],
+      params[:educational_difficulty_id], params[:educational_difficulty],
+      params[:educational_typical_learning_time_id], params[:educational_typical_learning_time],
+      params[:educational_description_id], params[:educational_description],
+      params[:educational_language_id], params[:educational_language])
+
+    # Actualizo los metadatos de derechos de autor
+    LoMetadataSchema.update_rights_metadata(
+      params[:rights_cost_id], params[:rights_cost],
+      params[:rights_copy_rights_and_other_restrictions_id], params[:rights_copy_rights_and_other_restrictions],
+      params[:rights_description_id], params[:rights_description])
+
+    # respond_to do |format|
+    #   if organization_title.update_attributes(:title => params[:organization_title]) 
+    #     format.html { redirect_to({:action => 'admin_material_search'}, notice: 'Learning object was successfully updated.')}
+    #   else
+    #     # redirect_to({:action => 'admin_material_search'}, notice: 'Learning object was successfully updated.')
+    #     format.html { redirect_to :action => 'admin_material_search', notice: 'Un error ha ocurrido!'  }
+    #   end
+    # end
     respond_to do |format|
-      if @learning_object.update_attributes(params[:learning_object])
-        format.html { redirect_to @learning_object, notice: 'Learning object was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @learning_object.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to({:action => 'admin_material_search'}, notice: 'Learning object was successfully updated.')}
     end
   end
 
@@ -121,8 +168,6 @@ class LearningObjectsController < ApplicationController
   end
 
   def upload_material
-    #content = Content.find(params[:id])
-    #logger.debug "THE CONTENT IS #{content.name}"
   end
 
   
@@ -138,19 +183,15 @@ class LearningObjectsController < ApplicationController
     # Descomprimo el zip y guardo los archivos en la carpeta correspondiente.
     Zip::ZipFile.open(reload_zip_file.path) do |zipfile|
       zipfile.each do |file|
-        # le doy el path donde debe guardar cada uno de los archivos
+        # Le doy el path donde debe guardar cada uno de los archivos
         f_path = File.join(@learning_object.get_folder_path, file.name)
         FileUtils.mkdir_p(File.dirname(f_path))
         zipfile.extract(file,f_path) unless File.exist?(f_path)
       end
     end
 
-    # Guardo el tópico al cual pertenece
-    LearningMaterial.create(
-      :content_id => params[:learning_object][:content_id], 
-      :learning_object_id => @learning_object.id, 
-      :course_id => params[:learning_object][:course_id]
-      )
+    # Guardo los tópicos al cual pertenece
+    save_contents(@learning_object, params[:content_id])
 
     # Leo el archivo xml
     read_manifest_xml(@learning_object)
@@ -161,14 +202,21 @@ class LearningObjectsController < ApplicationController
     respond_to do |format|
       format.html { render "learning_objects/upload_lo", notice: 'The file was successfully upload!' }
     end
-    # logger.debug "los parametros son: #{params[:learning_object][:course_id]}, #{params[:learning_object][:content_id]}"
+    
     # render :nothing => true
+  end
+
+  def save_contents(learning_object, contents_ids)
+    contents = Content.contents(contents_ids)
+    contents.each do |content|
+      LearningMaterial.save_content(learning_object,content)
+    end
   end
 
   #Cuando el usuario elige subir un objeto sin formato RELOAD (aqui se pide escribir los metadatos)
   def new_material
     
-    # Inserto el objeto con el título. ESto para entregar el ID a la creación de los metadatos posteriormente.
+    # Inserto el objeto con el título. Esto para entregar el ID a la creación de los metadatos posteriormente.
     @learning_object = LearningObject.create(:name => params[:general_title])
     @keywords = params[:general_keywords]
     @contribute_role = params[:life_cycle_contribute_role]
@@ -181,7 +229,8 @@ class LearningObjectsController < ApplicationController
     MetadataSchema.general_title(@learning_object, params[:general_title])
     MetadataSchema.general_language(@learning_object, params[:general_languages].split(","))
     MetadataSchema.general_description(@learning_object, params[:general_description])
-    MetadataSchema.general_keyword(@learning_object, params[:general_keywords].split(","))
+    # MetadataSchema.general_keyword(@learning_object, params[:general_keywords].split(","))
+    MetadataSchema.general_keyword(@learning_object, params[:general_keywords])
     MetadataSchema.general_coverage(@learning_object, params[:general_coverage])
     MetadataSchema.general_structure(@learning_object, params[:general_structure])
     MetadataSchema.general_aggregation_level(@learning_object, params[:general_aggregation_level])
@@ -196,7 +245,8 @@ class LearningObjectsController < ApplicationController
 
     #Metadatos educacionales. Los inserto en la base de datos
     MetadataSchema.educational_interactivity_type(@learning_object, params[:educational_interactivity_type])
-    MetadataSchema.educational_learning_resource_type(@learning_object, params[:educational_learning_resource_types].split(","))
+    # MetadataSchema.educational_learning_resource_type(@learning_object, params[:educational_learning_resource_types].split(","))
+    MetadataSchema.educational_learning_resource_type(@learning_object, params[:educational_learning_resource_types])
     MetadataSchema.educational_interactivity_level(@learning_object, params[:educational_interactivity_level])
     MetadataSchema.educational_semantic_density(@learning_object, params[:educational_semantic_density])
     MetadataSchema.educational_intended_end_user_role(@learning_object, params[:educational_intended_end_user_role])
@@ -218,26 +268,18 @@ class LearningObjectsController < ApplicationController
     #Inserto los items en la base de datos
     params[:new_item].each do |item|
       path = File.join(@learning_object.get_folder_path, item.original_filename)
-      logger.debug "****el nombre del archivo es: #{item.original_filename}"
-      logger.debug "****el nombre del archivo es: #{File.basename(item.original_filename, ".*")}"
       FileUtils.mkdir_p(File.dirname(path))
       File.open(path, "wb") { |f| f.write(item.read) }
 
       Item.create(:organization_id => organization.id, :title => File.basename(item.original_filename, ".*"), :resource_ref_id => URI.encode(item.original_filename))
     end
 
-    # Guardo el tópico al cual pertenece
-    LearningMaterial.create(
-      :content_id => params[:learning_object][:content_id], 
-      :learning_object_id => @learning_object.id, 
-      :course_id => params[:learning_object][:course_id]
-      )
+    # Guardo los tópicos al cual pertenece
+    save_contents(@learning_object, params[:content_id])
 
     respond_to do |format|
       format.html { render "learning_objects/upload_lo", notice: 'The file was successfully upload!' }
     end
-    # logger.debug "los parametros son: #{params[:learning_object][:course_id]}, #{params[:learning_object][:content_id]}"
-    # render :nothing => true
   end
 
   def read_languages(languages)
@@ -280,12 +322,10 @@ class LearningObjectsController < ApplicationController
 
     # General:identificador
     @identifier = doc.at_xpath("//general//identifier").text
-    # logger.debug "IDENTIFIER: #{@identifier}"
     MetadataSchema.general_identifier(learning_object, @identifier)
 
     # General:titulo
     @title = doc.at_xpath("//general//title//langstring").text
-    # logger.debug "TITULO: #{@title}"
     learning_object.name = @title
     learning_object.save
     MetadataSchema.general_title(learning_object, @title)
@@ -295,7 +335,6 @@ class LearningObjectsController < ApplicationController
     array_languages = []
     
     languages.each do |language|
-      # logger.debug "LANGUAGE: #{language.text}"
       array_languages << language.text
     end
     @languages = array_languages.join(",")
@@ -303,7 +342,6 @@ class LearningObjectsController < ApplicationController
 
     # General:descripcion
     @description = doc.at_xpath("//general//description//langstring").text
-    # logger.debug "DESCRIPTION: #{@description}"
     MetadataSchema.general_description(learning_object, @description)
     
     # General:keywords
@@ -311,133 +349,106 @@ class LearningObjectsController < ApplicationController
     array_keywords = []
     
     keywords.each do |key|
-      # logger.debug "KEYWORD: #{key.text}"
       array_keywords << key.text
     end
     @keywords = array_keywords.join(",")
-    MetadataSchema.general_keyword(learning_object, array_keywords)
+    MetadataSchema.general_keyword(learning_object, @keywords)
 
     # General:coverage
     @coverage = doc.xpath("//general//coverage//langstring").text
-    # logger.debug "coverage #{@coverage}"
     MetadataSchema.general_coverage(learning_object, @coverage)
 
     # General:structure
     @structure = doc.xpath("//general//structure//value//langstring").text
-    # logger.debug "structure #{@structure}"
     MetadataSchema.general_structure(learning_object,@structure)
 
     # General:aggregation level
     @aggregationlevel = doc.xpath("//general//aggregationlevel//value//langstring").text
-    # logger.debug "aggregationlevel #{@aggregationlevel}"
     MetadataSchema.general_aggregation_level(learning_object, @aggregationlevel)
   end
 
   def read_life_cycle_metadata(doc, learning_object)
-    # logger.debug "********** LIFE CYCLE METADATA *****************"
-
+    
     version = doc.xpath("//lifecycle//version//langstring").text
-    # logger.debug "version: #{version}"
     MetadataSchema.life_cycle_version(learning_object, version)
 
     status = doc.xpath("//lifecycle//status//value//langstring").text
-    # logger.debug "status: #{status}"
     MetadataSchema.life_cycle_status(learning_object, status)
 
     contribution = doc.xpath("//lifecycle//contribute")
     contribution.each do |contribute|
       @contribute_role = contribute.xpath("role//value//langstring").text
-      # logger.debug "contribute_role: #{contribute_role}"
       MetadataSchema.life_cycle_contribute_role(learning_object, @contribute_role)
 
       @contribute_entity = contribute.xpath("centity//vcard").text
-      # logger.debug "contribute_entity: #{contribute_entity}"
       MetadataSchema.life_cycle_contribute_entity(learning_object, @contribute_entity)
 
       contribute_date = contribute.xpath("date//datetime").text
-      # logger.debug "contribute_date: #{contribute_date}"
       MetadataSchema.life_cycle_contribute_date(learning_object, contribute_date)
     end
   end
 
   def read_educational_metadata(doc, learning_object)
-    # logger.debug "********** EDUCATIONAL METADATA *****************"
-
+    
     interactivitytype = doc.xpath("//educational//interactivitytype//value//langstring").text
-    # logger.debug "interactivitytype: #{interactivitytype}"
     MetadataSchema.educational_interactivity_type(learning_object, interactivitytype)
 
     learningresourcetypes = doc.xpath("//educational//learningresourcetype")
     learning_resource_types = []
     learningresourcetypes.each do |learningresourcetype|
       learning_resource_types << learningresourcetype.xpath("value//langstring").text
-      # logger.debug "learningresourcetype_: #{learningresourcetype.xpath("value//langstring").text}"
     end
-    MetadataSchema.educational_learning_resource_type(learning_object, learning_resource_types)
+    lrt = learning_resource_types.join(",")
+    # MetadataSchema.educational_learning_resource_type(learning_object, learning_resource_types)
+    MetadataSchema.educational_learning_resource_type(learning_object, lrt)
 
     interactivitylevel = doc.xpath("//educational//interactivitylevel//value//langstring").text
-    # logger.debug "interactivitylevel: #{interactivitylevel}"
     MetadataSchema.educational_interactivity_level(learning_object, interactivitylevel)
 
     semanticdensity = doc.xpath("//educational//semanticdensity//value//langstring").text
-    # logger.debug "semanticdensity: #{semanticdensity}"
     MetadataSchema.educational_semantic_density(learning_object, semanticdensity)
 
 
     intendedenduserrole = doc.xpath("//educational//intendedenduserrole//value//langstring").text
-    # logger.debug "intendedenduserrole: #{intendedenduserrole}"
     MetadataSchema.educational_intended_end_user_role(learning_object, intendedenduserrole)
 
     context = doc.xpath("//educational//context//value//langstring").text
-    # logger.debug "context: #{context}"
     MetadataSchema.educational_context(learning_object, context)
 
     typicalagerange = doc.xpath("//educational//typicalagerange//langstring").text
-    # logger.debug "typicalagerange: #{typicalagerange}"
     MetadataSchema.educational_typical_age_range(learning_object, typicalagerange)
 
     difficulty = doc.xpath("//educational//difficulty//value//langstring").text
-    # logger.debug "difficulty: #{difficulty}"
     MetadataSchema.educational_difficulty(learning_object, difficulty)
 
     typicallearningtime = doc.xpath("//educational//typicallearningtime//datetime").text
-    # logger.debug "typicallearningtime: #{typicallearningtime}"
     MetadataSchema.educational_typical_learning_time(learning_object, typicallearningtime)
 
     description = doc.xpath("//educational//description//langstring").text
-    # logger.debug "description: #{description}"
     MetadataSchema.educational_description(learning_object, description)
 
     language =  doc.xpath("//educational//language").text
-    # logger.debug "language: #{language}"
     MetadataSchema.educational_language(learning_object, language)
   end
 
   def read_rights_metadata(doc, learning_object)
-    # logger.debug "********** RIGHTS METADATA *****************"
-
+    
     cost = doc.xpath("//rights//cost//value//langstring").text
-    # logger.debug "cost: #{cost}"
     MetadataSchema.rights_cost(learning_object, cost)
 
     copyrightandotherrestrictions = doc.xpath("//rights//copyrightandotherrestrictions//value//langstring").text
-    # logger.debug "copyrightandotherrestrictions: #{copyrightandotherrestrictions}"
     MetadataSchema.rights_copy_right_and_other_restrictions(learning_object, copyrightandotherrestrictions)
 
     description = doc.xpath("//rights//description//langstring").text
-    # logger.debug "description: #{description}"
     MetadataSchema.rights_description(learning_object, description)
   end
 
   def read_organizations(doc, learning_object)
     organizations = doc.xpath("//organizations//organization")
-    #logger.debug "organizations: #{organizations}"
     
     organizations.each do |org|
       identifier = org["identifier"]
-      #logger.debug "*** organization identifier: #{identifier}"
       structure = org["structure"]
-      #logger.debug "**** organization structure: #{structure}"
       title = org.xpath("title").text
       db_org = Organization.create_organization(learning_object, identifier, structure, title)
 
@@ -449,16 +460,11 @@ class LearningObjectsController < ApplicationController
 
   def read_items(doc,organization, db_org)
     items = organization.xpath("item")
-    #logger.debug "items: #{items}"
     items.each do |item|
       identifier = item["identifier"]
-      #logger.debug "*** item identifier: #{identifier}"
       isvisible = item["isvisible"]
-      #logger.debug "*** item isvisible: #{isvisible}"
       identifierref = item["identifierref"]
-      # logger.debug "*** item identifierref: #{identifierref}"
       title = item.xpath("title").text
-      # logger.debug "**** item title #{title}"
       
       # Leo los recursos
       resource = doc.xpath("//resources//resource[@identifier='#{identifierref}']")
@@ -501,26 +507,54 @@ class LearningObjectsController < ApplicationController
   #     end
   # end
 
+  def write_metadata_file(learning_object, folder)
+    # Obtengo los metadatos del OA
+    lo_metadata = learning_object.lo_metadata_schemas
+
+    filename = "metadata.txt"
+    path = File.join(folder, filename)
+    FileUtils.mkdir_p(File.dirname(path))
+    File.open(path, "w") do |f|
+      lo_metadata.each do |data|
+        f.puts "[ #{data.metadata_schema.root.name} ] #{data.metadata_schema.name}: #{data.value}"
+      end
+    end
+  end
+
   def download_material
     @learning_object = LearningObject.find(params[:id])
-    material_path = "#{Rails.root}/public/system/learning_objects/" +@learning_object.id.to_s+"/"+@learning_object.file_file_name.to_s
-
+        
+    # Se verifica por que medio se sube el OA
+    if @learning_object.file_file_name.nil?
+      material_path = "#{Rails.root}/public/system/learning_objects/#{@learning_object.id.to_s}/#{@learning_object.name}.zip"
+    else
+      material_path = "#{Rails.root}/public/system/learning_objects/" +@learning_object.id.to_s+"/"+@learning_object.file_file_name.to_s
+    end    
+    
+    # Se elimina cualquier zip que exista anteriormente
     File.delete(material_path) if File.exist?(material_path)
-    
+
+    # Obtengo el folder
     folder = @learning_object.get_folder_path
-    input_filenames = Dir.entries(folder)
     
-    zipfile_name = folder + "/#{@learning_object.file_file_name}"
+    # Creo el nombre del zip
+    if @learning_object.file_file_name.nil?
+      zipfile_name = "#{folder}/#{@learning_object.name}.zip"
+      write_metadata_file(@learning_object, folder)
+    else
+      zipfile_name = "#{folder}/#{@learning_object.file_file_name}"
+    end
+
+    # Obtengo los archivos que hay en el folder
+    input_files = Dir.entries(folder)
     
     Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
-      input_filenames.reject {|fn| File.directory?(fn) }.each do |filename|
+      input_files.reject {|fn| File.directory?(fn) }.each do |filename|
         logger.debug "++++estoy enviando: #{filename}"
         zipfile.add(filename, folder + '/' + filename)
-        # zipfile.add(filename.sub(folder+'/',''), filename)
       end
       # zipfile.get_output_stream("myFile") { |os| os.write "myFile contains just this" }
     end
     send_file zipfile_name, :type => 'application/zip', :disposition => 'attachment', :filename => @learning_object.file_file_name
   end
-
 end

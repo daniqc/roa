@@ -17,7 +17,7 @@
             <td><strong><%= link_to lo.name, lo %></strong></td>
             <td><%= lo.created_at.strftime("%d %B %Y") %></td>
             <td>
-                <%= link_to edit_learning_object_path(lo), {:class => "btn btn-mini", :title =>"Editar OA"} do %>
+                <%= link_to edit_learning_object_path(lo), {:class => "btn btn-mini", :title =>"Editar OA", :id => "edit_lo_link"} do %>
                     <i class="icon-edit"></i>
                 <% end %>
             </td>

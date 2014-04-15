@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-	has_many :items
+	has_many :items, :dependent => :destroy
 	belongs_to :learning_object
 
 	attr_accessible :identifier, :learning_object_id, :structure, :title
@@ -12,5 +12,10 @@ class Organization < ActiveRecord::Base
 			:identifier => identifier,
 			:title => title,
 			:structure => structure)
+	end
+
+	def self.update_title(organization_title_id, organization_title)
+		org_title = find(organization_title_id)
+		org_title.update_attributes(:title => organization_title)
 	end
 end

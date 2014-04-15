@@ -6,9 +6,15 @@
         <div class="navbar-inner">
             <ul class="nav">
                 <li>
-                    <%= link_to courses_path do %>
-                        <i class="icon-chevron-left"></i>
-                        Back
+                    <%= link_to upload_material_path do %>
+                        <i class="icon-plus-sign"></i>
+                        Agregar nuevo objeto
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to learning_objects_path(:option=>1) do %>
+                        <i class="icon-th-list"></i>
+                        Ver todo el material
                     <% end %>
                 </li>
             </ul>

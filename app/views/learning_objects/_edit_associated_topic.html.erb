@@ -1,0 +1,8 @@
+<div class="row-fluid metadata-body">
+	<div class="span12">
+		<div class="row-fluid">
+			<div class="span2">Tema </div>
+			<div class="span10"><%= select_tag(:content_id, option_groups_from_collection_for_select( Course.order(:name), :topics, :name, :id, :name, selected_topics(@learning_object)), {:id => "new_object_category_select", :multiple => true}) %></div>
+		</div>
+	</div>	
+</div>

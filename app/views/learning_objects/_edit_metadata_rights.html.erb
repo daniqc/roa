@@ -1,0 +1,25 @@
+<div class="row-fluid metadata-body">
+	<div class="span12">
+		<div class="row-fluid">
+			<div class="span3">Cost: </div>
+			<% rights_cost = obtain_rights_cost(@learning_object,@metadata_rights) %>
+			<%= hidden_field_tag(:rights_cost_id, rights_cost.id)%>
+			<div class="span9"><%#= select_tag(:rights_cost, options_for_select(["yes", "no"],rights_cost.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:rights_cost,rights_cost.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Copy Right And Other Restrictions: </div>
+			<% rights_copy_rights_and_other_restrictions = obtain_rights_copy_rights_and_other_restrictions(@learning_object,@metadata_rights) %>
+			<%= hidden_field_tag(:rights_copy_rights_and_other_restrictions_id, rights_copy_rights_and_other_restrictions.id)%>
+			<div class="span9"><%#= select_tag(:rights_copy_rights_and_other_restrictions, options_for_select(["yes", "no"],rights_copy_rights_and_other_restrictions.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:rights_copy_rights_and_other_restrictions,rights_copy_rights_and_other_restrictions.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span3">Description: </div>
+			<% rights_description = obtain_rights_description(@learning_object,@metadata_rights) %>
+			<%= hidden_field_tag(:rights_description_id, rights_description.id)%>
+			<div class="span9"><%#= text_field_tag(:rights_description,rights_description.value, {:id=>"input-rightsdescription"}) %>
+			<%= text_field_tag(:rights_description,rights_description.value, {:id=>"input-rightsdescription"}) %></div>
+		</div>
+	</div>
+</div>

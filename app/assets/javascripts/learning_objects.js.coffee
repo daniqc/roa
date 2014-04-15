@@ -3,39 +3,24 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	#$("#learning_object_course_id").chosen()
+	# Para levantar el calendario
+	$( "#life_cycle_contribute_date" ).datepicker
+		dateFormat: "dd/mm/yy"
+		changeMonth: true
+		changeYear: true
+		showButtonPanel: true
+	
+	# Para validar que se sube un archivo
 	$("input:file").on "change", ->
 		$("input:submit").prop "disabled", not $(this).val()
 
-	# Muestra el combobox de cursos y topicos cuando estoy subiendo un nuevo material
-	$(".learning_object_content_id").parent().hide()
-	topics = $('.learning_object_content_id').html()
-	# console.log(topics)
-	$('.learning_object_course_id').change ->
-		course = $('.learning_object_course_id :selected').text()
-		options = $(topics).filter("optgroup[label='#{course}']").html()
-		if options
-			$(".learning_object_content_id").html(options)
-			$(".learning_object_content_id").parent().show()
-			#$("#learning_object_content_id").chosen()
-		else
-			$(".learning_object_content_id").empty()
-			$(".learning_object_content_id").parent().hide()
+	# Los hover en la explicacion de los metadatos al subir un OA
+	$('#general_aggregation_level').tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'hola'
 
-	$(".learning_content_id").parent().hide()
-	topics = $('.learning_content_id').html()
-	# console.log(topics)
-	$('.learning_course_id').change ->
-		course = $('.learning_course_id :selected').text()
-		options = $(topics).filter("optgroup[label='#{course}']").html()
-		if options
-			$(".learning_content_id").html(options)
-			$(".learning_content_id").parent().show()
-			#$("#learning_object_content_id").chosen()
-		else
-			$(".learning_content_id").empty()
-			$(".learning_content_id").parent().hide()
-	
+	# El hover en el rating de un OA
 	$(".hover-star").rating
 		focus: (value, link) ->
 			tip = $("#hover-test")
@@ -45,9 +30,7 @@ jQuery ->
 			tip = $("#hover-test")
 			$("#hover-test").html tip[0].data or ""
 
-	# $('#select_search_by').click ->
-	# 	$('#simply_search').toggle()
-	# 	$('#search_by_category').toggle()
+	# El cambio en las categorias en la busqueda de OA
 	$('#select_search_by').change ->
 		search_by = $('#select_search_by :selected').val()
 		if search_by == "3" #por categoria
@@ -56,4 +39,11 @@ jQuery ->
 		else			
 			$('#category_value').hide()
 			$('#query_text_field').show()
-			
+	
+	# Para elegir mas de una categoria (tema) en la subida de un OA
+	$("#new_object_category_select").multiselect()
+	$("#import_object_category_select").multiselect()
+
+	# Para enviar un mensaje javascript cuando se desee editar un OA
+	$("#edit_lo_link").click ->
+		alert("Si modifica los metadatos de este objeto, el archivo 'imsmanifest.xml' quedará obsoleto. ¿Desea continuar?")

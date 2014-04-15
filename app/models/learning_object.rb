@@ -1,13 +1,13 @@
 class LearningObject < ActiveRecord::Base
-  has_many :organizations
-  has_many :resources
-  has_many :lo_metadata_schemas
+  has_many :organizations, :dependent => :destroy
+  has_many :resources, :dependent => :destroy
+  has_many :lo_metadata_schemas, :dependent => :destroy
   has_many :metadata_schemas, :through => :lo_metadata_schemas
-  has_many :learning_materials
+  has_many :learning_materials, :dependent => :destroy
   has_many :courses, :through => :learning_materials
   has_many :contents, :through => :learning_materials
-  has_many :comments
-  has_many :ratings
+  has_many :comments, :dependent => :destroy
+  has_many :ratings, :dependent => :destroy
 
   attr_accessible :name, :file, :id, :file_file_name, :course_ids, :content_ids
   has_attached_file :file,
@@ -99,5 +99,33 @@ class LearningObject < ActiveRecord::Base
     else
       order("created_at desc").all
     end
+  end
+
+  def lo_metadata_schema_ids
+    self.lo_metadata_schemas.map(&:metadata_schema_id)
+  end
+
+  def metadata_general    
+    MetadataSchema.general.joins(:lo_metadata_schemas)
+                  .select("metadata_schemas.name, lo_metadata_schemas.id, lo_metadata_schemas.value")
+                  .where(:id => lo_metadata_schema_ids, lo_metadata_schemas: { learning_object_id: self.id })
+  end
+
+  def metadata_life_cycle
+    MetadataSchema.life_cycle.joins(:lo_metadata_schemas)
+                  .select("metadata_schemas.name, lo_metadata_schemas.id, lo_metadata_schemas.value")
+                  .where(:id => lo_metadata_schema_ids, lo_metadata_schemas: { learning_object_id: self.id })
+  end
+
+  def metadata_educational
+    MetadataSchema.educational.joins(:lo_metadata_schemas)
+                  .select("metadata_schemas.name, lo_metadata_schemas.id, lo_metadata_schemas.value")
+                  .where(:id => lo_metadata_schema_ids, lo_metadata_schemas: { learning_object_id: self.id })
+  end
+
+  def metadata_rights
+    MetadataSchema.rights.joins(:lo_metadata_schemas)
+                  .select("metadata_schemas.name, lo_metadata_schemas.id, lo_metadata_schemas.value")
+                  .where(:id => lo_metadata_schema_ids, lo_metadata_schemas: { learning_object_id: self.id })
   end
 end

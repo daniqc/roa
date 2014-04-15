@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
-//= require jquery-fileupload/basic
+//= require jquery.ui.datepicker
+//= require jquery.ui.datepicker-es
 //= require jquery.ui.dialog
+//= require jquery.ui.accordion
+//= require jquery-fileupload/basic
 //= require chosen-jquery
 //= require bootstrap
 //= require jquery-star-rating
+//= require_tree ./multiselect
 //= require_tree .

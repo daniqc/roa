@@ -1,6 +1,14 @@
 <div class="div-fluid">
   <div class="page-header">
       <h2>Listado de evaluaciones de <%= @learning_object.name %><small></small></h2>
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span10"></div>
+          <div class="span2">
+            <%= link_to "Volver al material", @learning_object, {:class=> "btn btn-small btn-success"} %>
+          </div>
+        </div>
+      </div>
   </div>
   
   <div class="container-fluid material-table">

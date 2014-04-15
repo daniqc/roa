@@ -49,11 +49,15 @@ class MetadataSchema < ActiveRecord::Base
 		LoMetadataSchema.create(:metadata_schema_id => gd, :learning_object_id => learning_object.id, :value => description)
 	end
 
-	def self.general_keyword(learning_object, array_keywords)
+	# def self.general_keyword(learning_object, array_keywords)
+	# 	gk = general.where("name like ?", "%eyword%").first.id
+	# 	array_keywords.each do |keyword|
+	# 		LoMetadataSchema.create(:metadata_schema_id => gk, :learning_object_id => learning_object.id, :value => keyword)	
+	# 	end
+	# end
+	def self.general_keyword(learning_object, keywords)
 		gk = general.where("name like ?", "%eyword%").first.id
-		array_keywords.each do |keyword|
-			LoMetadataSchema.create(:metadata_schema_id => gk, :learning_object_id => learning_object.id, :value => keyword)	
-		end
+		LoMetadataSchema.create(:metadata_schema_id => gk, :learning_object_id => learning_object.id, :value => keywords)
 	end
 
 	def self.general_coverage(learning_object, coverage)
@@ -106,9 +110,10 @@ class MetadataSchema < ActiveRecord::Base
 	def self.educational_learning_resource_type(learning_object, learning_resource_types)
 		elrt = educational.where("name ilike ?", "%esource type%").first.id
 
-		learning_resource_types.each do |lrt|
-			LoMetadataSchema.create(:metadata_schema_id => elrt, :learning_object_id => learning_object.id, :value => lrt)				
-		end
+		# learning_resource_types.each do |lrt|
+		# 	LoMetadataSchema.create(:metadata_schema_id => elrt, :learning_object_id => learning_object.id, :value => lrt)				
+		# end
+		LoMetadataSchema.create(:metadata_schema_id => elrt, :learning_object_id => learning_object.id, :value => learning_resource_types)				
 	end
 
 	def self.educational_interactivity_level(learning_object, interactivitylevel)
@@ -174,24 +179,43 @@ class MetadataSchema < ActiveRecord::Base
 
 	def self.find_description(learning_object)
 		gd = general.where("name like ?", "%escriptio%").first.id
-		LoMetadataSchema.where(:metadata_schema_id => gd, :learning_object_id => learning_object.id).first.value
+		description = LoMetadataSchema.where(:metadata_schema_id => gd, :learning_object_id => learning_object.id).first
+		if description.nil?
+			""
+		else
+		   description.value
+		end
 	end
 
 	def self.find_author(learning_object)
 		lccr = life_cycle.where("name like ?", "%ole%").first.id
-		LoMetadataSchema.where(:metadata_schema_id => lccr, :learning_object_id => learning_object.id).first.value
+		author = LoMetadataSchema.where(:metadata_schema_id => lccr, :learning_object_id => learning_object.id).first
+		if author.nil?
+			""
+		else
+			author.value
+		end
 	end
 
+	# def self.find_keywords(learning_object)
+	# 	gk = general.where("name like ?", "%eyword%").first.id
+	# 	array_keywords = []
+	# 	keywords = LoMetadataSchema.where(:metadata_schema_id => gk, :learning_object_id => learning_object.id)
+
+	# 	keywords.each do |key|
+	# 		array_keywords << key.value
+	# 	end
+
+	# 	array_keywords.join(",")
+
+	# end
 	def self.find_keywords(learning_object)
 		gk = general.where("name like ?", "%eyword%").first.id
-		array_keywords = []
-		keywords = LoMetadataSchema.where(:metadata_schema_id => gk, :learning_object_id => learning_object.id)
-
-		keywords.each do |key|
-			array_keywords << key.value
+		keywords = LoMetadataSchema.where(:metadata_schema_id => gk, :learning_object_id => learning_object.id).first
+		if keywords.nil?
+			""
+		else
+			keywords.value
 		end
-
-		array_keywords.join(",")
-
 	end
 end

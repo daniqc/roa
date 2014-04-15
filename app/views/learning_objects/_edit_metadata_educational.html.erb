@@ -1,0 +1,79 @@
+<div class="row-fluid metadata-body">
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span4">Interactivity Type: </div>
+			<% educational_interactivity_type = obtain_educational_interactivity_type(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_interactivity_type_id, educational_interactivity_type.id)%>
+			<div class="span8"><%#= select_tag(:educational_interactivity_type, options_for_select(["Active", "Expositive","Mixed", "Undefined"],educational_interactivity_type.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_interactivity_type, educational_interactivity_type.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Learning Resource Type (*): </div>
+			<% educational_learning_resource_types = obtain_educational_learning_resource_types(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_learning_resource_types_id, educational_learning_resource_types.id)%>
+			<div class="span8"><%= text_field_tag(:educational_learning_resource_types, educational_learning_resource_types.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Interactivity Level: </div>
+			<% educational_interactivity_level = obtain_educational_interactivity_level(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_interactivity_level_id, educational_interactivity_level.id)%>
+			<div class="span8"><%#= select_tag(:educational_interactivity_level, options_for_select(["Very low", "Low","Medium", "High", "Very high"],educational_interactivity_level.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_interactivity_level, educational_interactivity_level.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Semantic Density: </div>
+			<% educational_semantic_density = obtain_educational_semantic_density(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_semantic_density_id, educational_semantic_density.id)%>
+			<div class="span8"><%#= select_tag(:educational_semantic_density, options_for_select(["Very low", "Low","Medium", "High", "Very high"],educational_semantic_density.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_semantic_density, educational_semantic_density.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Intended End User Role: </div>
+			<% educational_intended_end_user_role = obtain_educational_intended_end_user_role(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_intended_end_user_role_id, educational_intended_end_user_role.id)%>
+			<div class="span8"><%#= select_tag(:educational_intended_end_user_role, options_for_select(["Author", "Learner","Manager", "Teacher"],educational_intended_end_user_role.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_intended_end_user_role, educational_intended_end_user_role.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Context: </div>
+			<% educational_context = obtain_educational_context(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_context_id, educational_context.id)%>
+			<div class="span8"><%#= select_tag(:educational_context, options_for_select(["Continuous Formation", "Higher Education","Primary Education", "Professional Formation", "Secondary Education","University Pregrade", "University Postgrade", "Vocational Training"], educational_context.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_context, educational_context.value) %></div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span4">Typical Age Range: </div>
+			<% educational_typical_age_range = obtain_educational_typical_age_range(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_typical_age_range_id, educational_typical_age_range.id)%>
+			<div class="span8"><%= text_field_tag(:educational_typical_age_range, educational_typical_age_range.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Difficulty: </div>
+			<% educational_difficulty = obtain_educational_difficulty(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_difficulty_id, educational_difficulty.id)%>
+			<div class="span8"><%#= select_tag(:educational_difficulty, options_for_select(["Very easy", "Easy","Medium", "Difficult","Very difficult"],educational_difficulty.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_difficulty, educational_difficulty.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Typical Learning Time: </div>
+			<% educational_typical_learning_time = obtain_educational_typical_learning_time(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_typical_learning_time_id, educational_typical_learning_time.id)%>
+			<div class="span8"><%= text_field_tag(:educational_typical_learning_time, educational_typical_learning_time.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Description: </div>
+			<% educational_description = obtain_educational_description(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_description_id, educational_description.id)%>
+			<div class="span8"><%= text_field_tag(:educational_description, educational_description.value) %></div>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">Language: </div>
+			<% educational_language = obtain_educational_language(@learning_object,@metadata_educational) %>
+			<%= hidden_field_tag(:educational_language_id, educational_language.id)%>
+			<div class="span8"><%#= select_tag(:educational_language, options_for_select(["es", "en"],educational_language.value),{:include_blank=>true}) %>
+			<%= text_field_tag(:educational_language, educational_language.value) %></div>
+		</div>
+	</div>
+</div>

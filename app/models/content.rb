@@ -7,6 +7,7 @@ class Content < ActiveRecord::Base
 
 	attr_accessible :course_id, :hours, :in_hours, :name, :number, :out_hours, :type, :parent_id
 
-	
-	
+	def self.contents(contents_ids)
+		where(:id => contents_ids)
+    end
 end
