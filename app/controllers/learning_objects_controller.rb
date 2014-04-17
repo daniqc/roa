@@ -8,7 +8,7 @@ class LearningObjectsController < ApplicationController
     case option
       when "2"
         @content = Content.find(params[:content])
-        @learning_objects = @content.learning_objects
+        @learning_objects = @content.learning_objects.paginate(:page => params[:page], :per_page => 10)
         @course = @content.course
         
         respond_to do |format|
@@ -17,14 +17,14 @@ class LearningObjectsController < ApplicationController
         end
       when "3" # Cuando accedo desde la vista de cursos
         @course = Course.find(params[:course])
-        @learning_objects = @course.learning_objects.uniq #uniq es para PostgreSQL
+        @learning_objects = @course.learning_objects.uniq.paginate(:page => params[:page], :per_page => 10) #uniq es para PostgreSQL
 
         respond_to do |format|
           format.html { render 'course_material'}
           format.json { render json: @learning_objects }
         end
       else
-        @learning_objects = LearningObject.search(params[:query], params[:search_by], params[:category_id])
+        @learning_objects = LearningObject.search(params[:query], params[:search_by], params[:category_id]).paginate(:page => params[:page], :per_page => 10)
         
         respond_to do |format|
           format.html # index.html.erb
@@ -82,7 +82,7 @@ class LearningObjectsController < ApplicationController
     
     respond_to do |format|
       if @learning_object.save
-        format.html { redirect_to @learning_object, notice: 'Learning object was successfully created.' }
+        format.html { redirect_to @learning_object, notice: 'El objeto fue correctamente creado!' }
         format.json { render json: @learning_object, status: :created, location: @learning_object }
       else
         format.html { render action: "new" }
@@ -151,7 +151,7 @@ class LearningObjectsController < ApplicationController
     #   end
     # end
     respond_to do |format|
-      format.html { redirect_to({:action => 'admin_material_search'}, notice: 'Learning object was successfully updated.')}
+      format.html { redirect_to({:action => 'admin_material_search'}, notice: 'El material fue correctamente actualizado!')}
     end
   end
 
@@ -160,6 +160,9 @@ class LearningObjectsController < ApplicationController
   def destroy
     @learning_object = LearningObject.find(params[:id])
     @learning_object.destroy
+
+    #Elimino la carpeta donde se alojaba el objeto
+
 
     respond_to do |format|
       format.html { redirect_to learning_objects_url }
@@ -190,6 +193,9 @@ class LearningObjectsController < ApplicationController
       end
     end
 
+    # Soluciono los problemas de tilde de los archivos
+    rename_files(@learning_object)
+
     # Guardo los tópicos al cual pertenece
     save_contents(@learning_object, params[:content_id])
 
@@ -200,7 +206,7 @@ class LearningObjectsController < ApplicationController
     File.delete("#{Rails.root}/public/system/learning_objects/" +@learning_object.id.to_s+"/"+@learning_object.file_file_name.to_s)
 
     respond_to do |format|
-      format.html { render "learning_objects/upload_lo", notice: 'The file was successfully upload!' }
+      format.html { render "learning_objects/upload_lo", notice: 'El archivo fue subido correctamente!' }
     end
     
     # render :nothing => true
@@ -278,7 +284,7 @@ class LearningObjectsController < ApplicationController
     save_contents(@learning_object, params[:content_id])
 
     respond_to do |format|
-      format.html { render "learning_objects/upload_lo", notice: 'The file was successfully upload!' }
+      format.html { render "learning_objects/upload_lo", notice: 'El material fue creado correctamente!' }
     end
   end
 
@@ -550,11 +556,26 @@ class LearningObjectsController < ApplicationController
     
     Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
       input_files.reject {|fn| File.directory?(fn) }.each do |filename|
-        logger.debug "++++estoy enviando: #{filename}"
+        # logger.debug "++++estoy enviando: #{filename}"
         zipfile.add(filename, folder + '/' + filename)
       end
       # zipfile.get_output_stream("myFile") { |os| os.write "myFile contains just this" }
     end
     send_file zipfile_name, :type => 'application/zip', :disposition => 'attachment', :filename => @learning_object.file_file_name
+  end
+
+  def rename_files(learning_object)
+    # Obtengo el folder
+    folder = learning_object.get_folder_path
+
+    # Obtengo los nombres de los archivos que contiene el folder
+    input_files = Dir.entries(folder)
+
+    # Por cada nombre hago en rename del archivo.
+    input_files.reject {|fn| File.directory?(fn) }.each do |filename|
+        original_name = learning_object.get_folder_path+"/"+filename
+        new_name = learning_object.get_folder_path+"/"+filename.encode('iso-8859-1').force_encoding('utf-8')
+        File.rename(original_name, new_name)
+      end
   end
 end

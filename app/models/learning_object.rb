@@ -74,7 +74,7 @@ class LearningObject < ActiveRecord::Base
     if query.present? || category_value.present?
       case search_by
         when "1"
-          logger.debug "ESTOY EN EL SEARCH BY 1 POR NOMBRE"
+          # logger.debug "ESTOY EN EL SEARCH BY 1 POR NOMBRE"
           where('name @@ ?', query).order("created_at desc")
           # where("name like ?" , query).order("created_at desc")
         when "2" 
@@ -85,7 +85,7 @@ class LearningObject < ActiveRecord::Base
           where(:id => result).order("created_at desc")
         when "3"
           # logger.debug "ESTOY EN EL SEARCH BY 3 POR CATEGORiA"
-          Course.find(category_value).learning_objects
+          Course.find(category_value).learning_objects.uniq
         when "4"
           # logger.debug "ESTOY EN EL SEARCH BY 4 POR PALABRAS CLAVE"
           keywords_id = MetadataSchema.general.where("name like ?", "%eyword%").first.id

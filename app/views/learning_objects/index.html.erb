@@ -6,7 +6,7 @@
   <%= render 'search_form'%>
 
   <div id="separate_div"></div>
-  <div class="container-fluid material-table">
+    <div class="container-fluid material-table">
     <% @learning_objects.each do |learning_object| %>
       <div class="row-fluid">
         <div class="span12">
@@ -28,6 +28,9 @@
       </div>
     <% end %>
   </div>
-
+  <%= will_paginate @learning_objects %>
+  <div style="text-align: center; color: darkcyan;">
+    <span><%= page_entries_info @learning_objects %></span>
+  </div>
   <br />
 </div>

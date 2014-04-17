@@ -41,7 +41,7 @@ gem 'pg_search'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 #Paginar el index de learning objects
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

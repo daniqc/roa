@@ -14,7 +14,8 @@
 #
 development:
   adapter: postgresql
-  encoding: unicode
+  # encoding: unicodeutf8
+  encoding: utf8
   database: roa_development
   pool: 5
   username: postgres
