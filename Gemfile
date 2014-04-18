@@ -16,14 +16,12 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
-
-  gem 'chosen-rails'
-  gem 'bootstrap-sass'
-  gem "jquery-fileupload-rails"
 end
 
+gem 'chosen-rails'
+gem 'bootstrap-sass'
+gem "jquery-fileupload-rails"
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'ancestry'
