@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "1.9.3"
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -32,7 +32,8 @@ gem 'jquery-star-rating-rails'
 
 gem 'hirb'
 
-gem 'rubyzip', :require => 'zip/zip'
+gem 'rubyzip', '>= 1.0.0'
+gem 'zip-zip'
 gem 'nokogiri' #XML files
 gem 'paperclip', "~> 3.0" # Documents
 gem 'pg_search'
@@ -42,6 +43,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 #Paginar el index de learning objects
 gem 'will_paginate'
+
+#Para el deploy
+gem 'heroku'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

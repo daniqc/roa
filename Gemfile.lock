@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     acts_as_list (0.2.0)
       activerecord (>= 3.0)
+    addressable (2.3.6)
     ancestry (1.3.0)
       activerecord (>= 2.3.14)
     arel (3.0.2)
@@ -54,8 +55,18 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     erubis (2.7.0)
+    excon (0.33.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    heroku (3.6.0)
+      heroku-api (~> 0.3.17)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
     hike (1.2.3)
     hirb (0.7.1)
     i18n (0.6.9)
@@ -72,6 +83,8 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -79,6 +92,7 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.0)
     multi_json (1.9.2)
+    netrc (0.7.7)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     nokogiri (1.6.0-x86-mingw32)
@@ -121,7 +135,9 @@ GEM
     rake (10.2.2)
     rdoc (3.12.2)
       json (~> 1.4)
-    rubyzip (0.9.9)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    rubyzip (1.1.3)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -142,6 +158,8 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     will_paginate (3.0.4)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -154,6 +172,7 @@ DEPENDENCIES
   bootstrap-sass
   chosen-rails
   coffee-rails (~> 3.2.1)
+  heroku
   hirb
   jquery-fileupload-rails
   jquery-rails
@@ -164,7 +183,8 @@ DEPENDENCIES
   pg
   pg_search
   rails (= 3.2.11)
-  rubyzip
+  rubyzip (>= 1.0.0)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   will_paginate
+  zip-zip
