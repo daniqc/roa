@@ -5,8 +5,8 @@
 			<div class="span8"><%= select_tag(:educational_interactivity_type, options_for_select(["Active", "Expositive","Mixed", "Undefined"]),{:include_blank=>true}) %></div>
 		</div>
 		<div class="row-fluid">
-			<div class="span4">Learning Resource Type (*): </div>
-			<div class="span8"><%= text_field_tag(:educational_learning_resource_types) %></div>
+			<div class="span4">Learning Resource Type: </div>
+			<div class="span8"><%= text_field_tag(:educational_learning_resource_types, nil, {maxlength: 50}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Interactivity Level: </div>
@@ -29,7 +29,7 @@
 	<div class="span6">
 		<div class="row-fluid">
 			<div class="span4">Typical Age Range: </div>
-			<div class="span8"><%= text_field_tag(:educational_typical_age_range) %></div>
+			<div class="span8"><%= text_field_tag(:educational_typical_age_range, nil, {maxlength: 50}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Difficulty: </div>
@@ -37,11 +37,11 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Typical Learning Time: </div>
-			<div class="span8"><%= text_field_tag(:educational_typical_learning_time) %></div>
+			<div class="span8"><%= text_field_tag(:educational_typical_learning_time, nil, {maxlength: 50}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Description: </div>
-			<div class="span8"><%= text_field_tag(:educational_description) %></div>
+			<div class="span8"><%= text_area_tag(:educational_description, nil, {maxlength: 100}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span4">Language: </div>

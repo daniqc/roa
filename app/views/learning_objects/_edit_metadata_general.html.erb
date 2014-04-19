@@ -57,7 +57,7 @@
 <div class="row-fluid metadata-body">
 	<div class="span11">
 		<div class="row-fluid">
-			<div class="span3">Keywords (separate with commas): </div>
+			<div class="span3">Keywords: </div>
 			<% general_keywords = obtain_general_keywords(@learning_object,@metadata_general) %>
 			<%= hidden_field_tag(:general_keywords_id, general_keywords.id)%>
 			<div class="span9"><%= text_field_tag(:general_keywords, general_keywords.value, {:id=>"input-keywords"}) %></div>

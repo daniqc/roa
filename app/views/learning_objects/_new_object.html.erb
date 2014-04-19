@@ -17,5 +17,7 @@
 	<%= render :partial => "learning_objects/new_metadata_rights" %>
 <div class="row-fluid principal-title"><div class="title">Subir material</div></div>
 <div class="submit-tag">
-   <div><%= submit_tag 'Upload material!', :class=> "btn btn-small btn-success", :disabled => true %></div>
+   <div><%= submit_tag 'Upload material!', :class=> "btn btn-small btn-success", :id=> "submit_new", :disabled => true %> 
+   	<span style="color: goldenrod;">(Se mantiene desactivado mientras no se adjunten los archivos)</span>
+   </div>
 </div>

@@ -15,10 +15,140 @@ jQuery ->
 		$("input:submit").prop "disabled", not $(this).val()
 
 	# Los hover en la explicacion de los metadatos al subir un OA
-	$('#general_aggregation_level').tooltip
+	$("#organization_title").tooltip
 		placement: 'top'
 		trigger: 'focus'
-		title: 'hola'
+		title: 'Título de la organización de contenidos'
+
+	$("#general_title").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Título del OA'
+
+	$("#general_identifier").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Valor que identifica este OA'
+
+	$("#general_languages").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Lenguaje de este OA (es, en)'
+
+	$("#general_coverage").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el alcance del OA. Por ejemplo, tecnologías de la información'
+
+	$("#general_structure").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe la estructura organizacional del contenido (Atomic, Branched, Collection, Hierarchical, Linear, Mixed, Networked, Parceled)'
+
+	$("#general_aggregation_level").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Granularidad funcional del OA (1 = nivel más bajo de granularidad [recurso básico], 4 = más alto nivel de granularidad [curso completo])'
+
+	$("#input-keywords").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Separadas por comas'
+
+	$("#life_cycle_version").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Versión actual del OA'
+
+	$("#life_cycle_status").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Estado actual del OA (Draft, Final, Revised, Unavailable)'
+
+	$("#life_cycle_contribute_role").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Nombre del autor del OA'
+
+	$("#life_cycle_contribute_entity").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Nombre de la entidad o persona que realiza la contribución'
+
+	$("#life_cycle_contribute_date").tooltip
+		placement: 'bottom'
+		trigger: 'focus'
+		title: 'Fecha de la contribución'
+
+	$("#educational_interactivity_type").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el tipo dominante de aprendizaje llevado a cabo en este OA (Active, Expositive, Mixed, Undefined).'
+
+	$("#educational_learning_resource_types").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el tipo de recursos en este OA (ejercicios, simulaciones, cuestionarios, diagrama, figura, gráfico, índice, presentación, tabla, texto narrativo, examen, experimento, planteamiento del problema, la autoevaluación, conferencia, etc).'
+
+	$("#educational_interactivity_level").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el grado en el que el alumno puede afectar a la experiencia de aprendizaje (Very Low, Low, Medium, High, Very High).'
+
+	$("#educational_semantic_density").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el grado de concisión de los contenidos en el OA (Very Low, Low, Medium, High, Very High).'
+
+	$("#educational_intended_end_user_role").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe al principal usuario para el que el OA fue diseñado (Teacher, Author, Learner, Manager).'
+
+	$("#educational_context").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe el entorno en el que el OA está destinado a ser entregado (Higher Education, Primary Education, Professional Formation, University Postgrade, etc).'
+
+	$("#educational_typical_age_range").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe la edad del usuario del OA ("edad mínima - edad máxima", en años, p.e: "20-30")'
+
+	$("#educational_difficulty").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe lo difícil que es para un estudiante trabajar a través de este OA, asumiendo que el alumno está en el contexto previsto y en el rango de edad previsto (Very easy, Easy, Medium, Difficult, Very difficult).'
+
+	$("#educational_typical_learning_time").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Cantidad esperada de tiempo que tomará para que el interesado complete este OA, asumiendo que está en el contexto previsto y en el rango de edad previsto (en minutos).'
+
+	$("#educational_description").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Describe cómo este OA debe ser usado'
+
+	$("#educational_language").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Representa el lenguaje utilizado por el alumno (es, en).'
+
+	$("#rights_cost").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: '¿Existe un costo financiero asociado con el uso de este OA?'
+
+	$("#rights_copy_rights_and_other_restrictions").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: '¿Este OA es con derechos de autor o tiene otras restricciones de uso?'
+
+	$("#input-rightsdescription").tooltip
+		placement: 'top'
+		trigger: 'focus'
+		title: 'Una descripción textual sobre el uso permitido del OA.'
 
 	# El hover en el rating de un OA
 	$(".hover-star").rating

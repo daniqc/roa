@@ -2,7 +2,7 @@
 	<div class="span6">
 		<div class="row-fluid">
 			<div class="span3">Version: </div>
-			<div class="span9"><%= text_field_tag(:life_cycle_version) %></div>
+			<div class="span9"><%= text_field_tag(:life_cycle_version, nil, {maxlength: 50}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span3">Status: </div>
@@ -10,13 +10,13 @@
 		</div>
 		<div class="row-fluid">
 			<div class="span3">Author: </div>
-			<div class="span9"><%= text_field_tag(:life_cycle_contribute_role) %></div>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_role, nil, {maxlength: 50}) %></div>
 		</div>
 	</div>
 	<div class="span6">
 		<div class="row-fluid">
 			<div class="span3">Contribute entity: </div>
-			<div class="span9"><%= text_field_tag(:life_cycle_contribute_entity) %></div>
+			<div class="span9"><%= text_field_tag(:life_cycle_contribute_entity, nil, {maxlength: 50}) %></div>
 		</div>
 		<div class="row-fluid">
 			<div class="span3">Contribute Date: </div>
