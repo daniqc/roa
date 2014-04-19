@@ -10,9 +10,15 @@ class ApplicationController < ActionController::Base
         render 'dashboard/midoa_methodology'
       when "4" # Metodologia ISD-MeLo
         render 'dashboard/isdmelo_methodology'
+      when "5" # Metodologia CPIS
+        render 'dashboard/cpis_methodology'
       else # indice de metodologias
         render 'dashboard/help_methodologies'
     end    
+  end
+
+  def how_upload
+    render 'dashboard/how_upload'
   end
 
   def aoddei
@@ -32,6 +38,24 @@ class ApplicationController < ActionController::Base
         render 'dashboard/help_methodologies'
     end 
     
+  end
+
+  def cpis
+    option = params[:option]
+    case option
+      when "1"
+        render 'dashboard/planilla_definicion'
+      when "2"
+        render 'dashboard/planilla_requisitos'
+      when "3" # Fase 3
+        render 'dashboard/aoddei_methodology_phase3'
+      when "4" # Fase 4
+        render 'dashboard/aoddei_methodology_phase4'
+      when "5" # Fase 5
+        render 'dashboard/aoddei_methodology_phase5'
+      else # indice de metodologias
+        render 'dashboard/help_methodologies'
+    end     
   end
 
   private

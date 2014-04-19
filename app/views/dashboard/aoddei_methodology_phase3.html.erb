@@ -1,0 +1,38 @@
+<div class="div-fluid">
+  <div class="page-header">
+  	<p style="color: gray;">Ayuda >> <%= link_to "Metodologías", methodologies_path(:option => 1) %> >> <%= link_to "AODDEI", methodologies_path(:option => 2) %></p>
+      <div class="row-fluid">
+      	<div class="span4">
+	      <h4>Fase 3. Desarrollo<small></small></h4>
+	    </div>
+	    <div class="span3">
+	      	<p>
+	        <%= link_to "Ir a la fase 4: Evaluación »", aoddei_path(:option => 4), :class=>"btn" %>
+	      </p>
+	    </div>
+	  </div>    
+  </div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="row-fluid">
+					<div class="span4">
+						<h5 style="text-align: center;">PASO 5: ARMAR EL OA</h5>
+						<p style="text-align: justify;">La estructura general del OA, logrado en la fase anterior, es necesario integrarlo en un archivo html el cual es recomendable que sea una plantilla, misma que contendrá datos como: información general de la institución que está produciendo los OA’s, así como el logo de la misma. La finalidad de la plantilla es ofrecer a los alumnos contenidos con un formato uniforme.
+						</p>
+					</div>
+					<div class="span4">
+						<h5 style="text-align: center;">PASO 6: EMPAQUETAR EL OA</h5>
+						<p style="text-align: justify;">. Mediante un software generador de paquetes SCORM, se procederá a crear y editar el metadato del OA. Hay una gran variedad de Software que nos puede ayudar en esta actividad, seleccione el que más se adapte a sus necesidades. Para efectos de la metodología, se utilizará el RELOAD. Al finalizar esta actividad se generará un archivo zip.
+						</p>
+					</div>
+					<div class="span4">
+						<h5 style="text-align: center;">PASO 7: ALMACENAR OA EN REPOSITORIO TEMPORAL</h5>
+						<p style="text-align: justify;"> Los repositorios de los OA’s son aplicaciones que facilitan el almacenamiento, búsqueda, uso y re-uso de los mismos; para que esto se cumpla los OA’s tienen que contar con una estructura adecuada de su metadato. En este paso se subirán los OA generados en un repositorio temporal, de donde serán tomados para su evaluación.
+							El producto final que se tendrá al finalizar esta fase, es el armado, empaquetado y almacenamiento del OA en un repositorio temporal.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

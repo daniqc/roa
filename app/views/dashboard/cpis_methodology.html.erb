@@ -1,0 +1,181 @@
+<div class="div-fluid">
+  <div class="page-header">
+    <p style="color: gray;">Ayuda >> <%= link_to "Metodologías", methodologies_path(:option => 1), :style=>"
+    color: gray;" %> >> CPIS</p>
+      <h2>CPIS<small></small></h2>
+      <p>A continuación se describen las fases de la metodología y las plantillas que se deben utilizar.</p>
+  </div>
+  <table class="table table-hover">
+              <thead>
+                <th style="text-align: center;">
+                  Fases<br>
+                  <p style="font-size: smaller;"></p>
+                </th>
+                <th style="text-align: center;">Actividades</th>
+                <th style="text-align: center;">Elementos generados y de apoyo</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Definición</b> 
+                    <p style="width: 500px;">Se establecen los aspectos iniciales, donde el experto docente define el proyecto que debe realizar. Dentro de esta fase se establece además una etapa de requisitos.</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Selección</li>
+                      <li>Requerimientos</li>
+                    </ul>
+                  </td>
+                  <td>Documento de definición (<a href="#planillaDefinicion" data-toggle="modal" >planilla de definición</a> y <a href="#planillaRequisitos" data-toggle="modal" >planilla de requisitos</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Selección de material</b>
+                    <p style="width: 500px;">Se recopila el material y se prepara para ser utilizado en el OA. En la planeación, la experiencia del experto docente es lo que define la calidad del material y en la obtención, el autor se encarga de buscar dicho material o crearlo.</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Planeación</li>
+                      <li>Obtención</li>
+                      <li>Digitalización</li>
+                    </ul>
+                  </td>
+                  <td>Glosario y plantillas (<a href="#planeacionMaterial" data-toggle="modal" >planeación material</a>, <a href="#objetosRecopilados" data-toggle="modal" >objetos recopilados</a>, <a href="#actividades" data-toggle="modal" >actividades</a> y <a href="#evaluaciones" data-toggle="modal" >evaluaciones</a>)</td>
+                </tr>
+                <tr>
+                  <td><b>Diseño</b>
+                    <p style="width: 500px;">El autor realiza un diagrama de estructuración de contenido para el OA, el cual sirve al técnico de diseño para determinar la carga de contenido en términos estéticos de la solución. De esta forma identifica la monotonía del material o su sobrecarga. El orden de los contenidos lo realiza el experto docente.</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Estructurar</li>
+                      <li>Diagramación</li>
+                    </ul>
+                  </td>
+                  <td>Diagramas</td>
+                </tr>
+                <tr>
+                  <td><b>Construcción</b>
+                    <p style="width: 500px;">Se lleva a cabo el desarrollo del OA, donde el rol de constructor es el encargado de tomar el diseño y programar el OA en alguna tecnología. Cuando se tiene armado el OA, el experto docente y el constructor realizan las pruebas pedagógicas y funcionales. Luego que se cumplen las pruebas, se realiza el empaquetado del objeto junto a sus metadatos.</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Armado</li>
+                      <li>Pruebas</li>
+                      <li>Empaquetado</li>
+                    </ul>
+                  </td>
+                  <td><a href="#planilla_pruebas" data-toggle="modal" >Planillas de prueba</a>, Objetos de aprendizaje</td>
+                </tr>
+                <tr>
+                  <td><b>Evaluación</b>
+                    <p style="width: 500px;">Permite a los evaluadores, valorar el objeto como un todo mirando aspectos pedagógicos como de diseño. En la evaluación no pueden participar los roles que construyeron el objeto, por lo tanto, quedan fuera el experto docente, el técnico de diseño y el constructor.</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Validación</li>
+                    </ul>
+                  </td>
+                  <td>Certificación de experto, cuestionario de evaluación, registro</td>
+                </tr>
+                <tr>
+                  <td><b>Seguimiento</b>
+                    <p style="width: 500px;">Tiene por objetivo realizar la implantación del OA en un
+repositorio de objetos y realizar mediciones respecto a su utilización. Esto comprobará si finalmente el material ayuda en la mejora del aprendizaje o no</p>
+                  </td>
+                  <td>
+                    <ul>
+                      <li>Implantación</li>
+                      <li>Mediciones</li>
+                    </ul>
+                  </td>
+                  <td>Registro</td>
+                </tr>
+              </tbody>
+            </table>
+</div>
+
+<div id="planillaDefinicion" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla de definición</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/planilla_definicion'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+
+<div id="planillaRequisitos" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla de requisitos</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/planilla_requisitos'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+<div id="planeacionMaterial" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planeación de material</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/planeacion_material'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+<div id="objetosRecopilados" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla de material recopilado</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/material_recopilado'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+<div id="actividades" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla de actividades</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/actividades'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+<div id="evaluaciones" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla de evaluaciones</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/evaluaciones'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
+<div id="planilla_pruebas" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <h3 id="myModalLabel">Planilla para realización de pruebas</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'dashboard/planilla_pruebas'%>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+  </div>
+</div>
+
