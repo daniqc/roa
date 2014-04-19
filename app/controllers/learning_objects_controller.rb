@@ -165,12 +165,13 @@ class LearningObjectsController < ApplicationController
 
 
     respond_to do |format|
-      format.html { redirect_to learning_objects_url }
+      format.html { redirect_to({:action => 'admin_material_search'}, notice: 'El material fue correctamente eliminado!') }
       format.json { head :no_content }
     end
   end
 
   def upload_material
+    authorize! :upload_material, LearningObject
   end
 
   

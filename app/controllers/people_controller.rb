@@ -1,15 +1,15 @@
 class PeopleController < ApplicationController
-  layout "authentication"
+  # layout "authentication"
   # GET /people
   # GET /people.json
-  # def index
-  #   @people = Person.all
+  def index
+    @people = Person.all
 
-  #   respond_to do |format|
-  #     format.html # index.html.erb
-  #     format.json { render json: @people }
-  #   end
-  # end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @people }
+    end
+  end
 
   # # GET /people/1
   # # GET /people/1.json

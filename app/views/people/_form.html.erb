@@ -32,9 +32,18 @@
       <%= user.label :password_confirmation %><br />
       <%= user.password_field :password_confirmation %>
     </div>
+    <div>
+      <%= f.label :roles %><br />
+      <% for role in User::ROLES %>
+        <%= check_box_tag "person[user_attributes][roles][]", role, @person.user.roles.include?(role) %>
+        <%=h role.humanize %><br />
+      <% end %>
+      <%= hidden_field_tag "person[user_attributes][roles][]", "" %>
+    </div>
   <% end %>
-
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=> "btn btn-success"%>   <%= link_to 'Volver a lista de usuarios', people_path, :class=> "btn btn-info"%>
   </div>
+
 <% end %>

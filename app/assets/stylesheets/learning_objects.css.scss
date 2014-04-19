@@ -146,8 +146,19 @@
 }
 
 .simply_search{
-	float: left;
-	padding-left: 220px;
+   padding-left: 0px;
+}
+
+.text_buscar{
+	margin-left: 10px;
+    padding-top: 5px;
+    border-top-width: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.span_search {
+    margin-left: 0px;
 }
 
 #link_to_advanced_search{
@@ -157,7 +168,11 @@
 }
 
 #select_search_by{
-	width: 120px;
+	width: 130px;
+}
+
+a.chzn-single{
+	height: 27px;
 }
 
 #separate_div{

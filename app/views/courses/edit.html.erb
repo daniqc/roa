@@ -1,14 +1,14 @@
 <div class="div-fluid">
 	<div class="page-header">
-      <h2><%= @course.name %><small> Editing course</small></h2>
+      <h2><%= @course.name %><small> Editar</small></h2>
     </div>
     <div class="navbar">
     	<div class="navbar-inner">
     		<ul class="nav">
     			<li>
-    				<%= link_to courses_path do %>
+    				<%= link_to courses_path(:option=>2) do %>
     				<i class="icon-chevron-left"></i>
-    				Back
+    				Volver al listado de cursos
     				<% end %>
     			</li>
     		</ul>

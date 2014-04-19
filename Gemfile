@@ -45,6 +45,9 @@ gem 'will_paginate'
 #Para el deploy
 gem 'heroku'
 
+#Para la autorizacion
+gem 'cancan'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

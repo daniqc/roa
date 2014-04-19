@@ -1,8 +1,24 @@
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand" href="#">ROA</a>
+<!-- <div class="row-fluid">
+  <div class="span6">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <span class="brand" href="#">Departamento de Ingeniería Informática</span>
+        <br>
+        <span class="brand" href="#">Repositorio de objetos de aprendizaje (ROA)</span>
+      </div>
+    </div>
   </div>
-</div>
+  <div class="span6">
+    <div style="text-align: right;"><%#= image_tag("UDS HCOLOR_ROA.png", :alt => "UdeSantiago") %></div>
+
+  </div>
+</div> -->
+<div class="navbar">
+      <div class="navbar-inner">
+        <span class="brand" href="#" style="margin-top: 10px;">Repositorio de objetos de aprendizaje (ROA) - Departamento Ingeniería Informática</span>
+        <div style="text-align: right;"><%= image_tag("UDS HCOLOR_ROA.png", size: "150x60", :alt => "UdeSantiago") %></div>
+      </div>
+    </div>
 
 <div class="row-fluid">
   <div class="span12">
@@ -21,13 +37,13 @@
         <!-- Formulario login-->
         <%= form_tag sessions_path, :class => "" do %>
           <legend>
-            Please login
+            Acceso
           </legend>
 
           <!-- Username -->
           <div class="row-fluid">
             <div class="span3">
-              Username
+              Nombre de usuario
             </div>
             <div class="span9">
               <div class="input-prepend">
@@ -42,7 +58,7 @@
           <!-- Password -->
           <div class="row-fluid">
             <div class="span3">
-              Password
+              Contraseña
             </div>
             <div class="span9">
               <div class="input-prepend">
@@ -58,7 +74,7 @@
           <div class="row-fluid">
             <div class="span3"></div>
             <div class="span9">
-            	<%= submit_tag "Sign in!", :disable_with => 'Signing in...', :class => "btn btn-primary" %>
+            	<%= submit_tag "Iniciar sesión!", :disable_with => 'Iniciando sesión...', :class => "btn btn-primary" %>
               <%#= submit_tag "Sign in!", :class => "btn btn-primary" %>
             </div>
           </div>
@@ -68,9 +84,10 @@
 
       <div class="span6 well">
         <!-- Soporte -->
-        <legend>Support</legend>
-        <p><%#= link_to "forgotten password?", new_password_reset_path %></p>
-        <p><%= link_to "Don't have an account? Sign Up!", signup_path %></p>
+        <legend>Soporte</legend>
+        <!-- <p><%#= link_to "forgotten password?", new_password_reset_path %></p> -->
+        <!-- <p><%#= link_to "Don't have an account? Sign Up!", signup_path %></p> -->
+        <p><%= link_to "¿No tienes cuenta? Contacta al administrador!" %></p>
       </div>
     </div>
   </div>
