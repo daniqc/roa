@@ -39,9 +39,10 @@ class MetadataSchema < ActiveRecord::Base
 
 	def self.general_language(learning_object, array_languages)
 		gl = general.where("name like ?", "%anguag%").first.id
-		array_languages.each do |language|
-			LoMetadataSchema.create(:metadata_schema_id => gl, :learning_object_id => learning_object.id, :value => language)
-		end		
+		# array_languages.each do |language|
+		# 	LoMetadataSchema.create(:metadata_schema_id => gl, :learning_object_id => learning_object.id, :value => language)
+		# end		
+		LoMetadataSchema.create(:metadata_schema_id => gl, :learning_object_id => learning_object.id, :value => array_languages)
 	end
 
 	def self.general_description(learning_object, description)
