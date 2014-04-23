@@ -28,6 +28,10 @@ class RatingsController < ApplicationController
     @learning_object = LearningObject.find(params[:learning_object_id])
     @rating = @learning_object.ratings.build
 
+    # Reviso si el usuario actual puede evaluar el objeto (no puede evaluarlo dos veces)
+    @can_evaluate = current_person.ratings.where(:learning_object_id => @learning_object.id).empty?
+    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @rating }

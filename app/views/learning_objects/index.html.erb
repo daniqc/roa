@@ -1,5 +1,6 @@
 <div class="div-fluid">
   <div class="page-header">
+    <p style="color: gray;text-align: right;">Te encuentras en: <%= link_to "Home", root_url%> &raquo; Ver todo el material</p>
       <h2>Listado de objetos de aprendizaje<br><small></small></h2>
       <span></span>
   </div>
@@ -9,7 +10,15 @@
   </div>
   
   <div id="separate_div"></div>
-  <div><p class="text-info" style="padding-left: 6px;">Para accceder a cada uno de ellos, haz clic en su título.</p></div>
+  <!-- <div class="row"> -->
+    <!-- <div class="span6"> -->
+      <p class="text-info" style="padding-left: 6px;">Para accceder a cada uno de ellos, haz clic en su título.</p>
+    <!-- </div> -->
+    <!-- <div class="span6">
+      <%#= link_to "Fecha", :sort => "created_at" %> |
+      <%#= link_to "Rating", :sort => "rating" %>
+    </div> -->
+  <!-- </div> -->
     <div class="container-fluid material-table">
     <% @learning_objects.each do |learning_object| %>
       <div class="row-fluid">

@@ -41,7 +41,9 @@
       </div>
       <div class="span4">
         <div class="align-center">
-          <%= f.submit "Agrega tu rating!", :class=> "btn btn-success"%>
+          <% if @can_evaluate %>
+            <%= f.submit "Agrega tu rating!", :class=> "btn btn-success"%>
+          <% end %>
           <%= link_to 'Volver al objeto', @learning_object, :class=> "btn btn-info"%>
         </div>
       </div>

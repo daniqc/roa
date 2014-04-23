@@ -49,6 +49,9 @@ class LearningObjectsController < ApplicationController
     @comment = Comment.new
     @comments = @learning_object.comments.arrange(:order => :created_at)
 
+    # Reviso si el usuario actual puede evaluar el objeto (no puede evaluarlo dos veces)
+    @can_evaluate = current_person.ratings.where(:learning_object_id => @learning_object.id).empty?
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @learning_object }

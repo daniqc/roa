@@ -1,5 +1,6 @@
 <div class="div-fluid">
   <div class="page-header">
+    <p style="color: gray;text-align: right;">Te encuentras en: <%= link_to "Home", root_url%> &raquo; <%= link_to "Ver por cursos", courses_path(:option=>1) %> &raquo; <%= link_to @course.name, course_organization_path(:id => @course.id), :title =>"Ver organización del curso (temas)" %> &raquo; Ver todo el material asociado</p>
       <h4>Objetos de aprendizaje asociados al curso " <%= @course.name %> "</h4>
       <div><%= link_to course_organization_path(:id => @course.id),{:class => "btn btn-mini" } do %>
         <i class="icon-th-list"></i> Ver la organización del curso

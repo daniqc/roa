@@ -1,5 +1,6 @@
 <div class="div-fluid">
     <div class="page-header">
+      <p style="color: gray;text-align: right;">Te encuentras en: <%= link_to "Home", root_url%> &raquo; <%= link_to "Ver todo el material", learning_objects_path(:option=>1) %> &raquo; <%= @learning_object.name %></p>
       <h2><%= @learning_object.name %><small></small></h2>
     </div>
     <div class="container-fluid material-table">
@@ -18,7 +19,17 @@
                 <div>Rating</div>
                 <%= rating_average @learning_object %>
                 <br>
-                <div class="rate_div"><%= link_to 'Evalúa este material!', new_learning_object_rating_path(@learning_object) %> </div>
+                <% if @can_evaluate %>
+                  <div class="rate_div">
+                    <%= link_to 'Evalúa este material!', new_learning_object_rating_path(@learning_object) %> 
+                  </div>
+                <% else %>  
+                  <div class="rate_div">
+                    <span>¡Ya lo has evaluado!</span>
+                    <br>
+                    <span style="font-size: smaller;"><%= link_to "(Revisa el rating de este material)", learning_object_ratings_path(@learning_object)%></span>
+                  </div>
+                <% end %>
               </div>
               
             </div>

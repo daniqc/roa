@@ -19,14 +19,18 @@
 				</button>
 
 				<!-- ROA -->
-				<a class="brand" href="#">ROA</a>
+				<span class="brand">ROA</span>
 
 				<!-- Atajos -->
 				<div class="nav-collapse collapse">
 
 					<!-- Links (izq) -->
 					<ul class="nav">
-						<li><%= link_to "Home", root_url %></li>
+						<li>
+							<%= link_to root_url do %>
+								<i class="icon-home icon-white"></i> Home
+							<% end %>
+						</li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> Ayuda <b class="caret"></b></a>
 							<ul class="dropdown-menu">

@@ -1,7 +1,8 @@
 <div class="div-fluid">
   <div class="page-header">
+    <p style="color: gray;text-align: right;">Te encuentras en: <%= link_to "Home", root_url%> &raquo; <%= link_to "Ver por cursos", courses_path(:option=>1) %> &raquo; <%= link_to @course.name, course_organization_path(:id => @course.id) %> &raquo; <%= @content.name %></p>
       <h4>Objetos de aprendizaje</h4>
-      <div>A continuación encontrarás el material asociado a: <%= link_to @course.name, learning_objects_path(:course => @course, :option=> 3) %> >> <%= @content.name %></div>
+      <!-- <div>A continuación encontrarás el material asociado a: <%#= link_to @course.name, learning_objects_path(:course => @course, :option=> 3) %> >> <%#= @content.name %></div> -->
   </div>
   
   <div class="container-fluid material-table">
