@@ -1,0 +1,56 @@
+-- create_table("careers", {:force=>true})
+   -> 0.4470s
+-- create_table("categories", {:force=>true})
+   -> 0.1370s
+-- create_table("class_schedules", {:force=>true})
+   -> 0.1250s
+-- create_table("class_types", {:force=>true})
+   -> 0.1260s
+-- create_table("comments", {:force=>true})
+   -> 0.2620s
+-- add_index("comments", ["ancestry"], {:name=>"index_comments_on_ancestry"})
+   -> 0.0730s
+-- create_table("contents", {:force=>true})
+   -> 0.1190s
+-- add_index("contents", ["ancestry"], {:name=>"index_contents_on_ancestry"})
+   -> 0.0660s
+-- create_table("course_classes", {:force=>true})
+   -> 0.0740s
+-- create_table("courses", {:force=>true})
+   -> 0.1440s
+-- create_table("departments", {:force=>true})
+   -> 0.2370s
+-- create_table("items", {:force=>true})
+   -> 0.2480s
+-- create_table("learning_materials", {:force=>true})
+   -> 0.1020s
+-- create_table("learning_objects", {:force=>true})
+   -> 0.1660s
+-- create_table("lo_metadata_schemas", {:force=>true})
+   -> 0.2000s
+-- create_table("metadata_schemas", {:force=>true})
+   -> 0.2480s
+-- add_index("metadata_schemas", ["ancestry"], {:name=>"index_metadata_schemas_on_ancestry"})
+   -> 0.0690s
+-- create_table("organizations", {:force=>true})
+   -> 0.1720s
+-- create_table("participants", {:force=>true})
+   -> 0.1690s
+-- create_table("people", {:force=>true})
+   -> 0.1760s
+-- create_table("ratings", {:force=>true})
+   -> 0.4940s
+-- create_table("resource_files", {:force=>true})
+   -> 0.2020s
+-- create_table("resources", {:force=>true})
+   -> 0.2290s
+-- create_table("roles", {:force=>true})
+   -> 0.1390s
+-- create_table("schedules", {:force=>true})
+   -> 0.1870s
+-- create_table("users", {:force=>true})
+   -> 0.1880s
+-- initialize_schema_migrations_table()
+   -> 0.0020s
+-- assume_migrated_upto_version(20140418185749, ["C:/Users/Dani/roa/db/migrate"])
+   -> 0.0020s

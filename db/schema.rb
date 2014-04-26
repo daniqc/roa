@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(:version => 20140418185749) do
   end
 
   create_table "comments", :force => true do |t|
-    t.string   "comment"
+    t.string   "comment",            :limit => 500
     t.integer  "like"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "ancestry"
     t.integer  "learning_object_id"
     t.integer  "person_id"
@@ -199,16 +199,6 @@ ActiveRecord::Schema.define(:version => 20140418185749) do
     t.string   "week_day"
     t.string   "start"
     t.string   "finish"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "subjects", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "units", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
