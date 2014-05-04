@@ -77,6 +77,7 @@ class LearningObjectsController < ApplicationController
     @metadata_life_cycle = @learning_object.metadata_life_cycle
     @metadata_educational = @learning_object.metadata_educational
     @metadata_rights = @learning_object.metadata_rights
+    authorize! :edit, LearningObject
   end
 
   # POST /learning_objects
@@ -172,6 +173,7 @@ class LearningObjectsController < ApplicationController
       format.html { redirect_to({:action => 'admin_material_search'}, notice: 'El material fue correctamente eliminado!') }
       format.json { head :no_content }
     end
+    authorize! :destroy, LearningObject
   end
 
   def upload_material

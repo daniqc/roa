@@ -107,7 +107,7 @@
 								<%= link_to "Cursos", courses_path(:option=>2) %>
 							</li>
 							<% end %>
-							<% if can? :admin_material_search, LearningObject %>
+							<% if can? :metadata_schemas, MetadataSchema %>
 							<li>
 								<%= link_to "Metadatos", metadata_schemas_path %>
 							</li>

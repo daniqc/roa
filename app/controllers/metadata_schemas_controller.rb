@@ -8,6 +8,7 @@ class MetadataSchemasController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @metadata_schemas }
     end
+    authorize! :metadata_schemas, MetadataSchema
   end
 
   # GET /metadata_schemas/1
