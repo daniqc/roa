@@ -35,7 +35,6 @@ class Ability
         can :upload_material, LearningObject
       else
         can :read, :all
-        can :create, Comment
       end
   end
 end

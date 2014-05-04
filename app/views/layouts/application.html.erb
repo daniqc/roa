@@ -97,15 +97,21 @@
 							<li class="nav-header">
 								Administración
 							</li>
+							<% if can? :admin_material_search, LearningObject %>
 							<li>
 								<%= link_to "Material", admin_material_search_path %>
-							</li>	
+							</li>
+							<% end %>
+							<% if can? :admin_material_search, LearningObject %>
 							<li>
 								<%= link_to "Cursos", courses_path(:option=>2) %>
 							</li>
+							<% end %>
+							<% if can? :admin_material_search, LearningObject %>
 							<li>
 								<%= link_to "Metadatos", metadata_schemas_path %>
 							</li>
+							<% end %>
 							<!-- <li class="divider"></li> -->
 							<!-- <li> <%#= link_to "Usuarios", people_path %></li> -->
 						<% end %>

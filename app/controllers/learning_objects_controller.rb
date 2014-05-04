@@ -40,6 +40,7 @@ class LearningObjectsController < ApplicationController
         format.html { render 'admin_index'}
         format.json { render json: @learning_objects }
       end
+      authorize! :admin_material_search, LearningObject
   end
 
   # GET /learning_objects/1

@@ -40,13 +40,13 @@
         <div class="span12">
           <div class="row-fluid">
             <div class="span4">
-              <div><strong>Author:</strong> <%= MetadataSchema.find_author(@learning_object)%></div>
-              <div><strong>Date add:</strong> <%= @learning_object.created_at.strftime("%d %B %Y") %></div> 
-              <div><strong>Date modified:</strong> <%= @learning_object.updated_at.strftime("%d %B %Y") %></div>
+              <div><strong>Autor:</strong> <%= MetadataSchema.find_author(@learning_object)%></div>
+              <div><strong>Fecha creación en ROA:</strong> <%= @learning_object.created_at.strftime("%d %B %Y") %></div> 
+              <div><strong>Fecha actualización en ROA:</strong> <%= @learning_object.updated_at.strftime("%d %B %Y") %></div>
             </div>
             <div class="span8">
-              <div><strong>Description:</strong> <%= MetadataSchema.find_description(@learning_object) %></div>
-              <div><strong>Keywords:</strong> <%= MetadataSchema.find_keywords(@learning_object) %></div>
+              <div><strong>Descripción:</strong> <%= MetadataSchema.find_description(@learning_object) %></div>
+              <div><strong>Palabras clave:</strong> <%= MetadataSchema.find_keywords(@learning_object) %></div>
             </div>
           </div>
         </div>
