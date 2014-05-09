@@ -5,7 +5,7 @@ class LoMetadataSchema < ActiveRecord::Base
 	attr_accessible :learning_object_id, :metadata_schema_id, :value
 
 
-	def self.update_general_metadata(
+	def self.update_general_metadata(learning_object,
 		general_title_id, general_title,
 		general_identifier_id, general_identifier,
 		general_languages_id, general_languages,
@@ -17,6 +17,9 @@ class LoMetadataSchema < ActiveRecord::Base
 
 		title = find(general_title_id)
 		title.update_attributes(:value => general_title)
+
+		#Actualizo el nombre del learning object y la fecha de actualizacion
+		learning_object.update_attributes(:name => general_title)
 
 		identifier = find(general_identifier_id)
 		identifier.update_attributes(:value => general_identifier)

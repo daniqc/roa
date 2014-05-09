@@ -71,17 +71,23 @@ class LearningObject < ActiveRecord::Base
     # search_by = 2 busca por nombre del autor
     # search_by = 3 busca por nombre de la categoría
     # search_by = 4 busca por palabras clave
+    # Primero transformo la query de busqueda en formato or (|) para la tsquery
+    q = query.split if query
+    new_query = q.join('|') if q
+    # logger.debug "+++++++++++++ la query es: #{new_query}"
+
     if query.present? || category_value.present?
       case search_by
         when "1"
           # logger.debug "ESTOY EN EL SEARCH BY 1 POR NOMBRE"
-          where('name @@ ?', query).order("created_at desc")
+          #where('name @@ ?', query).order("created_at desc")
+          where "to_tsvector('spanish', name) @@ to_tsquery('spanish', '#{new_query}')"
           # where("name like ?" , query).order("created_at desc")
         when "2" 
           # logger.debug "ESTOY EN EL SEARCH BY 2 POR AUTOR"
           author_id = MetadataSchema.life_cycle.where("name like ?", "%ole%").first.id
           # result = LoMetadataSchema.where('metadata_schema_id = ? and value = @@ ?', author_id, query).map(&:learning_object_id)
-          result = LoMetadataSchema.where('metadata_schema_id = ? and value like ?', author_id, query).map(&:learning_object_id)
+          result = LoMetadataSchema.where('metadata_schema_id = ? and value ilike ?', author_id, query).map(&:learning_object_id)
           where(:id => result).order("created_at desc")
         when "3"
           # logger.debug "ESTOY EN EL SEARCH BY 3 POR CATEGORiA"

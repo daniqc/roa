@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.5 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-ADC04EEFD9AB4B7E3FCA75C97E257B84" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <imsmd:lom>
+      <imsmd:general>
+        <imsmd:identifier>OAProtocoloAutenticaciónKerberos</imsmd:identifier>
+        <imsmd:title>
+          <imsmd:langstring xml:lang="en">Protocolo de Autenticación Kerberos</imsmd:langstring>
+        </imsmd:title>
+        <imsmd:language>es</imsmd:language>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Objetos de aprendizaje de protocolo de autenticación Kerberos, sus fundamentos y las diferencias principales entre la versión 4 y versión 5 del mismo.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:keyword>
+          <imsmd:langstring xml:lang="en">Protocolos de Autenticación, Protocolo Kerberos, Kerberos versión 4, Kerberos versión 5</imsmd:langstring>
+        </imsmd:keyword>
+        <imsmd:coverage>
+          <imsmd:langstring xml:lang="en">Tecnologías de la Información</imsmd:langstring>
+        </imsmd:coverage>
+        <imsmd:structure>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Lineal</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:structure>
+        <imsmd:aggregationlevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">2</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:aggregationlevel>
+      </imsmd:general>
+      <imsmd:lifecycle>
+        <imsmd:version>
+          <imsmd:langstring xml:lang="en">Versión 1.0</imsmd:langstring>
+        </imsmd:version>
+        <imsmd:status>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Draft</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:status>
+        <imsmd:contribute>
+          <imsmd:role>
+            <imsmd:source>
+              <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+            </imsmd:source>
+            <imsmd:value>
+              <imsmd:langstring xml:lang="en">Autor: Antonio Ibáñez Bendezú</imsmd:langstring>
+            </imsmd:value>
+          </imsmd:role>
+          <imsmd:centity>
+            <imsmd:vcard>Dra. Rosa Muñoz, Universidad de Santiago de Chile</imsmd:vcard>
+          </imsmd:centity>
+          <imsmd:date>
+            <imsmd:datetime>21/08/2013</imsmd:datetime>
+          </imsmd:date>
+        </imsmd:contribute>
+      </imsmd:lifecycle>
+      <imsmd:educational>
+        <imsmd:interactivitytype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Aprendizaje mezclado (activo-expositivo)</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitytype>
+        <imsmd:learningresourcetype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Diagramas, figuras, índice, listas, textos, autoevaluación, animaciones</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:learningresourcetype>
+        <imsmd:interactivitylevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Medio</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitylevel>
+        <imsmd:semanticdensity>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Medio</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:semanticdensity>
+        <imsmd:intendedenduserrole>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Estudiante</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:intendedenduserrole>
+        <imsmd:context>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Educación Superior</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:context>
+        <imsmd:typicalagerange>
+          <imsmd:langstring xml:lang="en">20 - 30 años</imsmd:langstring>
+        </imsmd:typicalagerange>
+        <imsmd:difficulty>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Medio</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:difficulty>
+        <imsmd:typicallearningtime>
+          <imsmd:datetime>30 minutos</imsmd:datetime>
+        </imsmd:typicallearningtime>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Entendimiento mediante recursos gráficos y animaciones del protocolo de autenticación Kerberos y conceptos asociados.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:language>es</imsmd:language>
+      </imsmd:educational>
+      <imsmd:rights>
+        <imsmd:cost>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:cost>
+        <imsmd:copyrightandotherrestrictions>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="x-none">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:copyrightandotherrestrictions>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Este es un recurso que no está sujeto a derechos de autor. Es un tipo de licencia GPL.</imsmd:langstring>
+        </imsmd:description>
+      </imsmd:rights>
+    </imsmd:lom>
+  </metadata>
+  <organizations default="ORG-A60842FB929119F304B0A65174BDFDAB">
+    <organization identifier="ORG-A60842FB929119F304B0A65174BDFDAB" structure="hierarchical">
+      <title>Organization</title>
+      <item identifier="ITEM-0BFA0355B3B4472B0789B6A315B3CD3A" isvisible="true" identifierref="RES-ABF513CF32A1B6A5635998B12F6F14AF">
+        <title>ProtocolosAutenticacion</title>
+      </item>
+      <item identifier="ITEM-AD423EBC2A1E8D345E3FB3AC37989B84" isvisible="true" identifierref="RES-CDC962B2EFABF31682CEC6374ACFF6A7">
+        <title>EvolucionAKerberos</title>
+      </item>
+      <item identifier="ITEM-B4E256EE95AAED27A954E6F6C2114089" isvisible="true" identifierref="RES-B12EC9CEC99927F2E19396BA769301F2">
+        <title>KerberosVersion5</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-ABF513CF32A1B6A5635998B12F6F14AF" type="webcontent" href="ProtocolosAutenticacion.html">
+      <file href="ProtocolosAutenticacion.html" />
+      <file href="ProtocolosAutenticacion.swf" />
+    </resource>
+    <resource identifier="RES-CDC962B2EFABF31682CEC6374ACFF6A7" type="webcontent" href="EvolucionAKerberos.html">
+      <file href="EvolucionAKerberos.html" />
+      <file href="EvolucionAKerberos.swf" />
+    </resource>
+    <resource identifier="RES-B12EC9CEC99927F2E19396BA769301F2" type="webcontent" href="KerberosVersion5.html">
+      <file href="KerberosVersion5.html" />
+      <file href="KerberosVersion5.swf" />
+    </resource>
+  </resources>
+</manifest>
+

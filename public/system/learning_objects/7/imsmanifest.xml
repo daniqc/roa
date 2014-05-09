@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.5 SCORM 1.2 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFEST-BA1CCF00DF246297BE94237F623D5CB8" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <imsmd:lom>
+      <imsmd:general>
+        <imsmd:identifier>OATelefoniaMovil</imsmd:identifier>
+        <imsmd:title>
+          <imsmd:langstring xml:lang="en">Redes telefonía móvil</imsmd:langstring>
+        </imsmd:title>
+        <imsmd:language>es</imsmd:language>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Objeto de aprendizaje de redes de telefonía móvil GPRS, UMTS, Conceptos Generales y Protocolo IP Móvil.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:keyword>
+          <imsmd:langstring xml:lang="en">Redes de telefonía móvil. GPRS, UMTS, Conceptos Generales, Protocolo IP Móvil.</imsmd:langstring>
+        </imsmd:keyword>
+        <imsmd:coverage>
+          <imsmd:langstring xml:lang="en">Tecnologías de la Información</imsmd:langstring>
+        </imsmd:coverage>
+        <imsmd:structure>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Linear</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:structure>
+        <imsmd:aggregationlevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">1</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:aggregationlevel>
+      </imsmd:general>
+      <imsmd:lifecycle>
+        <imsmd:version>
+          <imsmd:langstring xml:lang="en">Versión 1.0</imsmd:langstring>
+        </imsmd:version>
+        <imsmd:status>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Unavailable</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:status>
+        <imsmd:contribute>
+          <imsmd:role>
+            <imsmd:source>
+              <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+            </imsmd:source>
+            <imsmd:value>
+              <imsmd:langstring xml:lang="en">Author Gonzalo Roco</imsmd:langstring>
+            </imsmd:value>
+          </imsmd:role>
+          <imsmd:centity>
+            <imsmd:vcard>Dra. Rosa Muñoz, Universidad de Santiago de Chile</imsmd:vcard>
+          </imsmd:centity>
+          <imsmd:date>
+            <imsmd:datetime>25/04/2012</imsmd:datetime>
+          </imsmd:date>
+        </imsmd:contribute>
+      </imsmd:lifecycle>
+      <imsmd:educational>
+        <imsmd:interactivitytype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Mixed</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitytype>
+        <imsmd:learningresourcetype>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Diagram</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:learningresourcetype>
+        <imsmd:interactivitylevel>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">medium</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:interactivitylevel>
+        <imsmd:semanticdensity>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">medium</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:semanticdensity>
+        <imsmd:intendedenduserrole>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Learner</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:intendedenduserrole>
+        <imsmd:context>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">Higher Education</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:context>
+        <imsmd:typicalagerange>
+          <imsmd:langstring xml:lang="en">20-30</imsmd:langstring>
+        </imsmd:typicalagerange>
+        <imsmd:difficulty>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">medium</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:difficulty>
+        <imsmd:typicallearningtime>
+          <imsmd:datetime>25 minutos</imsmd:datetime>
+        </imsmd:typicallearningtime>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Entendimiento mediante imágnes, texto y actividades sobre las redes de telefonía móvil.</imsmd:langstring>
+        </imsmd:description>
+        <imsmd:language>es</imsmd:language>
+      </imsmd:educational>
+      <imsmd:rights>
+        <imsmd:cost>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:cost>
+        <imsmd:copyrightandotherrestrictions>
+          <imsmd:source>
+            <imsmd:langstring xml:lang="en">LOMv1.0</imsmd:langstring>
+          </imsmd:source>
+          <imsmd:value>
+            <imsmd:langstring xml:lang="en">no</imsmd:langstring>
+          </imsmd:value>
+        </imsmd:copyrightandotherrestrictions>
+        <imsmd:description>
+          <imsmd:langstring xml:lang="en">Este es un recurso que no está sujero a derechos de autor. Es un tipo de licencia GPL.</imsmd:langstring>
+        </imsmd:description>
+      </imsmd:rights>
+    </imsmd:lom>
+  </metadata>
+  <organizations>
+    <organization identifier="Organización de los OA" structure="hierarchical">
+      <title>Organization</title>
+      <item identifier="ITEM-6086E10FC3FC3E2CC7BCDBCA67841B9F" isvisible="true" identifierref="RES-79D3FF5BAB8A40C308596346F337098F">
+        <title>ConceptosGenerales</title>
+      </item>
+      <item identifier="ITEM-4795976F48150EE8602ABC56571F61BC" isvisible="true" identifierref="RES-26E39F2CABBCED414287E6137AAFE11C">
+        <title>GPRS</title>
+      </item>
+      <item identifier="ITEM-0F4888ED2E7A52E74CE9D384CD67619D" isvisible="true" identifierref="RES-773B1BFA48E81175432AE70804F64D53">
+        <title>UMTS</title>
+      </item>
+      <item identifier="ITEM-D57559C3A65B4D8490D28F04A0CC55DF" isvisible="true" identifierref="RES-C4304EDD8AAD3145185412D55462BF13">
+        <title>IPMovil</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-79D3FF5BAB8A40C308596346F337098F" type="webcontent" href="ConceptosGenerales.html">
+      <file href="ConceptosGenerales.html" />
+      <file href="AC_RunActiveContent.js" />
+      <file href="ConceptosGenerales.swf" />
+    </resource>
+    <resource identifier="RES-26E39F2CABBCED414287E6137AAFE11C" type="webcontent" href="GPRS.html">
+      <file href="GPRS.html" />
+      <file href="AC_RunActiveContent.js" />
+      <file href="GPRS.swf" />
+    </resource>
+    <resource identifier="RES-773B1BFA48E81175432AE70804F64D53" type="webcontent" href="UMTS.html">
+      <file href="UMTS.html" />
+      <file href="AC_RunActiveContent.js" />
+      <file href="UMTS.swf" />
+    </resource>
+    <resource identifier="RES-C4304EDD8AAD3145185412D55462BF13" type="webcontent" href="IPMovil.html">
+      <file href="IPMovil.html" />
+      <file href="AC_RunActiveContent.js" />
+      <file href="IPMovil.swf" />
+    </resource>
+  </resources>
+</manifest>
+

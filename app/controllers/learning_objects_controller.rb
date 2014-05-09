@@ -109,7 +109,7 @@ class LearningObjectsController < ApplicationController
     LearningMaterial.update_contents(@learning_object, params[:content_id])
 
     # Actualizo los metadatos generales
-    LoMetadataSchema.update_general_metadata(
+    LoMetadataSchema.update_general_metadata(@learning_object,
       params[:general_title_id], params[:general_title],
       params[:general_identifier_id], params[:general_identifier],
       params[:general_languages_id], params[:general_languages],
