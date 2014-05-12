@@ -1,5 +1,6 @@
 #encoding: utf-8
 class RatingsController < ApplicationController
+  before_filter :authorize
   # GET /ratings
   # GET /ratings.json
   def index

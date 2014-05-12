@@ -1,0 +1,253 @@
+// Place all the styles related to the learningObjects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.material-detail{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.details{
+	border-bottom: 1px solid;
+	border-bottom-color: inherit;
+	margin-bottom: 10px;
+}
+
+.principal-title{
+	background-color: lavender;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.principal-title .title{
+	margin-left: 10px;
+	font-weight: bold;
+	color: darkslategrey;
+}
+
+.metadata{
+	background-color: whitesmoke;
+	margin-bottom: 10px;
+}
+
+.metadata .metadata-title{
+	margin-left: 10px;
+}
+
+.metadata-body{
+	margin-left: 10px;
+}
+
+.bar {
+    height: 18px;
+    background: green;
+}
+
+#general_keywords{
+	width: 755px;
+}
+
+#general_description{
+	height: 100px;
+}
+
+#learning_object_course_id{
+	width: 350px;
+}
+
+#learning_object_content_id{
+	width: 350px;
+}
+
+#organization_title{
+	width: 350px;
+}
+
+.material-table{
+	padding-left: 0px;
+	padding-right: 20px;
+}
+
+.material-row{
+	border-right-width: 4px;
+	height: 130px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	border: solid 1px;
+	border-color: whitesmoke;
+	padding-left: 10px;
+	padding-right: 5px;
+	margin-right: 0px;
+	margin-left: 0px;
+	border-radius: 8px;
+}
+
+.odd{
+    background: #F8FBEF;
+}
+
+.comment-div{
+	background-color: cadetblue;
+	margin-bottom: 9px;
+	margin-top: 30px;
+	border-radius: 8px;
+	padding-left: 20px;
+	height: 5px;
+}
+
+.comment-row-fluid{
+	margin-left: 10px;
+}
+.comment-row{
+	border: solid 1px;
+	border-right-width: 1px;
+	border-left-width: 2px;
+	border-color: whitesmoke;
+	border-radius: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	margin-right: 200px;
+	margin-left: 10px;
+	# height: 140px;
+}
+
+.reply{
+	margin-top: 40px;
+}
+
+.comment-message{
+	# height: 90px;
+}
+
+.nested_comments {
+  margin-left: 30px;
+}
+
+.nested_comments .nested_comments .nested_comments{
+  margin-left: 0;
+}
+
+.rating_div{
+	border: solid 1px;
+	border-radius: 10px;
+	border-color: darkgray;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.rate_div{
+	padding-top: 10px;
+}
+
+.simply_search{
+   padding-left: 0px;
+}
+
+.text_buscar{
+	margin-left: 10px;
+    padding-top: 5px;
+    border-top-width: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.span_search {
+    margin-left: 0px;
+}
+
+#link_to_advanced_search{
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#select_search_by{
+	width: 130px;
+}
+
+a.chzn-single{
+	height: 27px;
+}
+
+#separate_div{
+	clear: both;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+
+.div-ayuda{
+	margin-bottom: 30px;
+    margin-left: 10px;
+    border: dashed 1px;
+    border-color: salmon;
+    border-radius: 10px;
+}
+.p-ayuda{
+    margin-left: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: gray;
+}
+#input-keywords{
+	width: 650px;
+}
+#input-description{
+	width: 200px;
+	height: 100px;
+}
+
+#input-rightsdescription{
+	width: 650px;
+}
+
+.div-descarga{
+	margin-top: 13px;
+	margin-left: 46px;
+}
+
+.pagination {
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default; 
+}
+
+.pagination a, .pagination span {
+	padding: 0.2em 0.3em; 
+}
+
+.pagination .disabled {
+	color: #aaaaaa; 
+}
+
+.pagination .current {
+	font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    #display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; 
+}
+
+.pagination a {
+	text-decoration: none;
+    color: black; 
+}
+
+.pagination a:hover, .pagination a:focus {
+	text-decoration: underline; 
+}

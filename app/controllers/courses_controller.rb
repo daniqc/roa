@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_filter :authorize
   # GET /courses
   # GET /courses.json
   def index

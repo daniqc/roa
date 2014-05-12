@@ -1,4 +1,5 @@
 class LearningObjectsController < ApplicationController
+  before_filter :authorize
 
   # GET /learning_objects
   # GET /learning_objects.json
@@ -57,6 +58,7 @@ class LearningObjectsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @learning_object }
     end
+    authorize! :show, LearningObject
   end
 
   # GET /learning_objects/new
@@ -536,7 +538,7 @@ class LearningObjectsController < ApplicationController
     # Obtengo los metadatos del OA
     lo_metadata = learning_object.lo_metadata_schemas
 
-    filename = "metadata.txt"
+    filename = "ROA_metadata.txt"
     path = File.join(folder, filename)
     FileUtils.mkdir_p(File.dirname(path))
     File.open(path, "w") do |f|
