@@ -47,10 +47,10 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.learning_object, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @comment.learning_object, notice: 'El comentario fue creado exitosamente!' }
         format.json { render json: @comment.learning_object, status: :created, location: @comment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to @comment.learning_object, notice: 'Debe escribir un comentario para poder guardarlo.'}
         format.json { render json: @comment.learning_object, status: :unprocessable_entity }
       end
     end

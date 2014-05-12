@@ -33,7 +33,7 @@
         <% @courses.each do |course| %>
         <tr>
             <td><%= course.code %></td>
-            <td><%= link_to course.name, course, :title =>"See Topics" %></td>
+            <td><%= link_to course.name, course, :title =>"Ver temas" %></td>
             <td><%= course.tel_t %></td>
             <td><%= course.tel_e %></td>
             <td><%= course.tel_l %></td>
@@ -47,12 +47,12 @@
                 <% end %>
             </td>
             <!-- <td>
-                <%= link_to course_participants_path(course), {:class => "btn btn-mini", :title =>"See Participants"} do %>
+                <%#= link_to course_participants_path(course), {:class => "btn btn-mini", :title =>"See Participants"} do %>
                     <i class="icon-user"></i>
-                <% end %>
+                <%# end %>
             </td> -->
             <td>
-                <%= link_to course, :class => "btn btn-mini", method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= link_to course, :class => "btn btn-mini", method: :delete, data: { confirm: '¿Está seguro de eliminar el curso? Tome en cuenta que al realizar esta acción algunos OAs quedarán sin tema asociado.' } do %>
                     <i class="icon-trash"></i>
                 <% end %>
             </td>

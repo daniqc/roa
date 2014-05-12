@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
 	belongs_to :person
 	
 	attr_accessible :comment, :like, :learning_object_id, :parent_id, :person_id
+	validates :comment, presence: true
 end

@@ -25,7 +25,7 @@
         <td><%= content.out_hours %></td>
         <td><%= link_to 'Show', content %></td>
         <td><%= link_to 'Edit', edit_content_path(content) %></td>
-        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: '¿Está seguro de eliminar el tema? Tenga en cuenta que algunos OAs pueden quedar sin tema asociado.' } %></td>
       </tr>
     <% end %>
     </tbody>

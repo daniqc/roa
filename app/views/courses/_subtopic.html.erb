@@ -5,12 +5,12 @@
 </td> -->
 <td></td>
 <td>
-  <%= link_to edit_subtopic_path(content), :class => "btn btn-mini", :title => "Edit Subtopic" do %>
+  <%= link_to edit_subtopic_path(content), :class => "btn btn-mini", :title => "Editar contenido" do %>
     <i class="icon-edit"></i>
   <% end %>
 </td>
 <td>
-  <%= link_to content, :class => "btn btn-mini", :title => "Delete subtopic", method: :delete, data: { confirm: 'Are you sure?' } do %>
+  <%= link_to content, :class => "btn btn-mini", :title => "Delete subtopic", method: :delete, data: { confirm: '¿Está seguro de eliminar el tema? Tome en cuenta que al realizar esta acción algunos OAs quedarán sin tema asociado.' } do %>
   	<i class="icon-trash"></i>
   <% end %>
 </td> 

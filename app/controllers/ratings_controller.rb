@@ -1,3 +1,4 @@
+#encoding: utf-8
 class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
@@ -48,13 +49,14 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new(params[:rating])
     @rating.evaluation = params[:rating_star]
+    learning_object = LearningObject.find(params[:learning_object_id])
 
     respond_to do |format|
       if @rating.save
-        format.html { redirect_to learning_object_ratings_path, notice: 'Rating was successfully created.' }
+        format.html { redirect_to learning_object_ratings_path, notice: 'El rating fue exitosamente agregado!' }
         format.json { render json: @rating, status: :created, location: @rating }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_learning_object_rating_path(learning_object), notice: 'Debes agregar tu evaluación con las estrellas! ' }
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end

@@ -51,10 +51,10 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to courses_path(), notice: 'Course was successfully created.' }
+        format.html { redirect_to courses_path(), notice: 'El curso fue exitosamente creado.' }
         format.json { render json: @course, status: :created, location: @course }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_course_path, notice: "Debe escribir por lo menos el nombre del curso para crearlo." }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +67,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to courses_path, notice: 'Course was successfully updated.' }
+        format.html { redirect_to courses_path(:option=>2), notice: 'El curso fue exitosamente editado!' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,10 +80,11 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course = Course.find(params[:id])
+    LearningMaterial.destroy_course(@course)
     @course.destroy
 
     respond_to do |format|
-      format.html { redirect_to courses_url }
+      format.html { redirect_to courses_path(:option=>2), notice: 'El curso fue exitosamente eliminado!'  }
       format.json { head :no_content }
     end
   end

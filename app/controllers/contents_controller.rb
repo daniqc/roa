@@ -47,10 +47,10 @@ class ContentsController < ApplicationController
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @course, notice: 'Content was successfully created.' }
+        format.html { redirect_to @course, notice: 'El contenido fue exitosamente creado!' }
         format.json { render json: @course, status: :created, location: @course }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_course_topic_path(@course), notice: 'Debe agregar por lo menos el nombre del contenido para agregarlo.' }
         format.json { render json: @content.errors, status: :unprocessable_entity }
       end
     end
@@ -77,10 +77,11 @@ class ContentsController < ApplicationController
   def destroy
     @content = Content.find(params[:id])
     @course = @content.course_id
+    LearningMaterial.destroy_content(@content)
     @content.destroy
 
     respond_to do |format|
-      format.html { redirect_to course_path(@course) }
+      format.html { redirect_to course_path(@course), notice: 'El tema ha sido exitosamente eliminado' }
       format.json { head :no_content }
     end
   end

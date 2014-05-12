@@ -8,14 +8,16 @@
     
     <table class="table table-hover">
       <thead>
-        <th>Name</th>
-        <th>Fecha de creación</th>
+        <th>Nombre OA</th>
+        <th>Autor</th>
+        <th>Fecha incorporación en ROA</th>
         <th colspan = "2">Acciones</th>
       </thead>
       <tbody>
         <% @learning_objects.each do |lo| %>
         <tr>
             <td><strong><%= link_to lo.name, lo %></strong></td>
+            <td><%= lo.role %></td>
             <td><%= lo.created_at.strftime("%d %B %Y") %></td>
             <td>
                 <% if can? :edit, lo %>
@@ -35,7 +37,10 @@
         <% end %>
     </tbody>
     </table>
-
+    <%= will_paginate @learning_objects %>
+    <div style="text-align: center; color: darkcyan;">
+        <span><%= page_entries_info @learning_objects %></span>
+    </div>
     <br />
 
     <%#div class="dialog" title="Course" id="new_course_div"></div%>

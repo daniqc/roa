@@ -6,7 +6,7 @@ class LearningObjectsController < ApplicationController
     option = params[:option]
     
     case option
-      when "2"
+      when "2" # Cuando accedo a los OA de un contenido especifico de un curso
         @content = Content.find(params[:content])
         @learning_objects = @content.learning_objects.paginate(:page => params[:page], :per_page => 10)
         @course = @content.course
@@ -15,7 +15,7 @@ class LearningObjectsController < ApplicationController
           format.html { render 'index_course'}
           format.json { render json: @learning_objects }
         end
-      when "3" # Cuando accedo desde la vista de cursos
+      when "3" # Cuando accedo a todos los OA desde la vista de cursos (menu lateral)
         @course = Course.find(params[:course])
         @learning_objects = @course.learning_objects.uniq.paginate(:page => params[:page], :per_page => 10) #uniq es para PostgreSQL
 
@@ -23,7 +23,7 @@ class LearningObjectsController < ApplicationController
           format.html { render 'course_material'}
           format.json { render json: @learning_objects }
         end
-      else
+      else # option=1 accedo desde el menu lateral
         @learning_objects = LearningObject.search(params[:query], params[:search_by], params[:category_id]).paginate(:page => params[:page], :per_page => 10)
         
         respond_to do |format|
@@ -34,8 +34,8 @@ class LearningObjectsController < ApplicationController
   end
 
   def admin_material_search
-      @learning_objects = LearningObject.search(params[:query], params[:search_by], params[:category_id])
-
+      @learning_objects = LearningObject.search(params[:query], params[:search_by_admin], params[:category_id]).paginate(:page => params[:page], :per_page => 20)
+  
       respond_to do |format|
         format.html { render 'admin_index'}
         format.json { render json: @learning_objects }
@@ -181,11 +181,7 @@ class LearningObjectsController < ApplicationController
   end
 
   
-  # Cuando el usuario elige la opcion de subir un zip file
-  def unzip_lo
-    
-    reload_zip_file = params[:reload_zip_file]
-    
+  def unzip_correct_zip_file(reload_zip_file, content_id)
     # Guardo el registro en base de datos
     @learning_object = LearningObject.create(:file => reload_zip_file)
 
@@ -204,7 +200,7 @@ class LearningObjectsController < ApplicationController
     rename_files(@learning_object)
 
     # Guardo los tópicos al cual pertenece
-    save_contents(@learning_object, params[:content_id])
+    save_contents(@learning_object, content_id)
 
     # Leo el archivo xml
     read_manifest_xml(@learning_object)
@@ -215,8 +211,24 @@ class LearningObjectsController < ApplicationController
     respond_to do |format|
       format.html { render "learning_objects/upload_lo", notice: 'El archivo fue subido correctamente!' }
     end
-    
-    # render :nothing => true
+  end
+  # Cuando el usuario elige la opcion de subir un zip file
+  
+  def unzip_lo
+    reload_zip_file = params[:reload_zip_file]
+    content_id = params[:content_id]
+
+    extension = File.extname(reload_zip_file.original_filename)
+
+    if extension != ".zip"
+      flash[:error] = "El formato del archivo es incorrecto. Por favor subir un paquete .zip"
+      redirect_to upload_material_path
+    elsif content_id.nil?
+      flash[:error] = "Debe seleccionar un tema para subir el objeto."
+      redirect_to upload_material_path
+    else
+      unzip_correct_zip_file(reload_zip_file, content_id)
+    end
   end
 
   def save_contents(learning_object, contents_ids)
@@ -553,10 +565,11 @@ class LearningObjectsController < ApplicationController
     # Creo el nombre del zip
     if @learning_object.file_file_name.nil?
       zipfile_name = "#{folder}/#{@learning_object.name}.zip"
-      write_metadata_file(@learning_object, folder)
+      # write_metadata_file(@learning_object, folder)
     else
       zipfile_name = "#{folder}/#{@learning_object.file_file_name}"
     end
+    write_metadata_file(@learning_object, folder)
 
     # Obtengo los archivos que hay en el folder
     input_files = Dir.entries(folder)

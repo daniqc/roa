@@ -2,11 +2,11 @@
   <%= form_tag learning_objects_path, :method => "get" do %>
       
       <!-- <div style="float:left;"> -->
-        <%= select_tag(:search_by, options_for_select([['Nombre', 1], ['Autor', 2], ['Categoría', 3], ['Palabras clave', 4]], params[:search_by]), prompt: "Buscar por...") %>
+        <%= select_tag(:search_by, options_for_select([['Nombre OA', 1], ['Nombre autor', 2], ['Categoría', 3], ['Palabras clave', 4]], params[:search_by]), prompt: "Buscar por...") %>
       <!-- </div> -->
       <!-- <div style="float:left; width:300px;"> -->
-        <%= text_field_tag :query, params[:query], :id => "query_text_field", :style=>"width:300px;" %>
-        <%= collection_select(nil, :category_id, Course.order(:name), :id, :name, { :include_blank => true}, {:id=> "category_value", :style => "width:300px; height:29px"}) %>
+        <%= text_field_tag :query, params[:query], :id => "query_text_field_index", :style=>"width:300px;display:inline;" %>
+        <%= collection_select(nil, :category_id, Course.order(:name), :id, :name, { :include_blank => true}, {:id=> "category_value_index", :style => "width:300px; height:29px;display: none;"}) %>
         <%= submit_tag "Buscar", :name => nil, :class=> "btn" %>
       <!-- </div> -->
   <% end %>

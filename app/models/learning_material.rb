@@ -18,4 +18,12 @@ class LearningMaterial < ActiveRecord::Base
       save_content(learning_object,content)
     end
   end
+
+  def self.destroy_course(course)
+    where(:course_id => course.id).destroy_all
+  end
+
+  def self.destroy_content(content)
+    where(:content_id => content.id).destroy_all
+  end
 end

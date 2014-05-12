@@ -1,6 +1,6 @@
 <div class="div-fluid">
   <div class="page-header">
-      <h2>Contents of <%= @course.name %> <small></small></h2>
+      <h2>Contenidos del curso <%= @course.name %> <small></small></h2>
   </div>
   <div class="navbar">
     <div class="navbar-inner">
@@ -8,13 +8,13 @@
             <li>
               <%= link_to courses_path do %>
                 <i class="icon-chevron-left"></i>
-                Back
+                Volver al listado de cursos
               <% end %>
             </li>
             <li>
               <%= link_to new_course_topic_path(@course) do %>
                 <i class="icon-plus-sign"></i>
-                New topic
+                Nuevo contenido
               <% end %>
             </li>
         </ul>

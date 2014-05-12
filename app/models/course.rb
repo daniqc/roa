@@ -11,6 +11,7 @@ class Course < ActiveRecord::Base
 	has_many :learning_objects, :through => :learning_materials
 	
 	attr_accessible :career_id, :category_id, :code, :department_id, :description, :hh_week, :name, :tel_e, :tel_l, :tel_t, :version
+	validates :name, presence: true
 
 	scope :topics
 	def topics

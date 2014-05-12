@@ -160,15 +160,33 @@ jQuery ->
 			tip = $("#hover-test")
 			$("#hover-test").html tip[0].data or ""
 
-	# El cambio en las categorias en la busqueda de OA
+	# El cambio en las categorias en la busqueda de OA en vista principal
 	$('#search_by').change ->
 		search_by = $('#search_by :selected').val()
 		if search_by == "3" #por categoria
-			$('#query_text_field').toggle()
-			$('#category_value').toggle()
-		else			
-			$('#category_value').hide()
-			$('#query_text_field').show()
+			document.getElementById("query_text_field_index").style.display = "none"
+			document.getElementById("category_value_index").style.display = "inline"
+			#$('#query_text_field').toggle()
+			#$('#category_value').toggle()			
+		else
+			document.getElementById("category_value_index").style.display = "none"
+			document.getElementById("query_text_field_index").style.display = "inline"
+			#$('#category_value').hide()			
+			#$('#query_text_field').show()
+
+	# El cambio en las categorias en la busqueda de OA en vista de administrador
+	$('#select_search_admin').change ->
+		search_by = $('#select_search_admin :selected').val()
+		if search_by == "3" #por categoria
+			document.getElementById("query_text_field_admin").style.display = "none"
+			document.getElementById("category_value_admin").style.display = "inline"
+			#$('#query_text_field').toggle()
+			#$('#category_value').toggle()			
+		else
+			document.getElementById("category_value_admin").style.display = "none"
+			document.getElementById("query_text_field_admin").style.display = "inline"
+			#$('#category_value').hide()			
+			#$('#query_text_field').show()
 				
 			
 	
