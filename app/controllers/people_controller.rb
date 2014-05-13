@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_filter :authorize
   # layout "authentication"
   # GET /people
   # GET /people.json
@@ -9,6 +10,7 @@ class PeopleController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @people }
     end
+    authorize! :read, Person
   end
 
   # # GET /people/1
@@ -27,6 +29,7 @@ class PeopleController < ApplicationController
   def new
     @person = Person.new
     @person.build_user
+    authorize! :new, Person
   end
 
   # POST /people
@@ -41,6 +44,7 @@ class PeopleController < ApplicationController
     else
       render "new"
     end
+    authorize! :create, Person
   end
 
   # # GET /people/1/edit
@@ -62,6 +66,7 @@ class PeopleController < ApplicationController
         format.json { render json: @person.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, Person
   end
 
   # # DELETE /people/1

@@ -97,6 +97,7 @@
 							<li class="nav-header">
 								Administración
 							</li>
+						<% end %>
 							<% if can? :admin_material_search, LearningObject %>
 							<li>
 								<%= link_to "Material", admin_material_search_path %>
@@ -114,7 +115,7 @@
 							<% end %>
 							<!-- <li class="divider"></li> -->
 							<!-- <li> <%#= link_to "Usuarios", people_path %></li> -->
-						<% end %>
+						
 					</ul>
 				</div>
 			 </div>

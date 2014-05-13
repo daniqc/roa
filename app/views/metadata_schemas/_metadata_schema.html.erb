@@ -1,0 +1,20 @@
+<%= content_tag_for(:tr, metadata_schema) do %>
+    <td style="padding-left:<%= metadata_schema.depth*20 %>px">
+    	<%= metadata_schema.name %>
+    </td>
+    <td>
+    	<%= link_to new_metadata_schema_path(:parent_id => metadata_schema), :remote => true, :class => "btn btn-mini", :title => 'Agregar sub metadato' do %>
+    		<i class="icon-plus"></i>
+        <% end %>
+    </td>
+    <td>
+    	<%#= link_to edit_metadata_schema_path(metadata_schema), :class => "btn btn-mini", :title =>"Edit Metadata",:remote => true do %>
+            <!-- <i class="icon-edit"></i> -->
+        <%# end %>
+    </td>
+    <td>
+    	<%#= link_to metadata_schema, :class => "btn btn-mini", method: :delete, data: { confirm: 'Are you sure?' }, :remote => true do %>
+            <!-- <i class="icon-trash"></i> -->
+        <%# end %>
+    </td>
+<% end %>

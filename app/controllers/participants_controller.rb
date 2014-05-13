@@ -1,4 +1,5 @@
 class ParticipantsController < ApplicationController
+  before_filter :authorize
   # GET /participants
   # GET /participants.json
   def index

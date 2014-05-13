@@ -1,4 +1,5 @@
 class LoMetadataSchemasController < ApplicationController
+  before_filter :authorize
   # GET /lo_metadata_schemas
   # GET /lo_metadata_schemas.json
   def index

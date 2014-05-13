@@ -1,4 +1,5 @@
 class LearningMaterialsController < ApplicationController
+  before_filter :authorize
   # GET /learning_materials
   # GET /learning_materials.json
   def index

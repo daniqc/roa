@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  before_filter :authorize
   # GET /organizations
   # GET /organizations.json
   def index

@@ -66,7 +66,7 @@ cripto_7 = Content.create(course_id: cripto.id, number: 7, name: 'Distribución 
 cripto_8 = Content.create(course_id: cripto.id, number: 8, name: 'Seguridad Web', parent_id: nil, type: "Topic")
 cripto_9 = Content.create(course_id: cripto.id, number: 9, name: 'Protocolos criptográficos', parent_id: nil, type: "Topic")
 
-Content.create(course_id: cripto.id, number: 1, name: 'Servicios, emcanismos y ataques', parent_id: cripto_1.id, type: 'Subtopic')
+Content.create(course_id: cripto.id, number: 1, name: 'Servicios, mecanismos y ataques', parent_id: cripto_1.id, type: 'Subtopic')
 Content.create(course_id: cripto.id, number: 2, name: 'Arquitectura de seguridad OSI', parent_id: cripto_1.id, type: 'Subtopic')
 
 Content.create(course_id: cripto.id, number: 1, name: 'Modelos', parent_id: cripto_2.id, type: 'Subtopic')

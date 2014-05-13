@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_filter :authorize
   # GET /schedules
   # GET /schedules.json
   def index

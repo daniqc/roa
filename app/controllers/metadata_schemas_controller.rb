@@ -1,4 +1,5 @@
 class MetadataSchemasController < ApplicationController
+  before_filter :authorize
   # GET /metadata_schemas
   # GET /metadata_schemas.json
   def index
