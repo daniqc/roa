@@ -50,6 +50,7 @@ class PeopleController < ApplicationController
   # # GET /people/1/edit
    def edit
      @person = Person.find(params[:id])
+     authorize! :edit, Person
    end
 
   # # PUT /people/1
