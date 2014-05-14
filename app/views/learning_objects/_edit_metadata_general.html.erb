@@ -49,7 +49,7 @@
 			<div class="span3">Description: </div>
 			<% general_description = obtain_general_description(@learning_object,@metadata_general) %>
 			<%= hidden_field_tag(:general_description_id, general_description.id)%>
-			<div class="span8"><%= text_area_tag(:general_description, general_description.value, {:id=>"input-description", maxlength:50}) %></div>
+			<div class="span8"><%= text_area_tag(:general_description, general_description.value, {:id=>"input-description", maxlength:100}) %></div>
 		</div>	
 	</div>
 	

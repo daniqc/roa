@@ -17,7 +17,7 @@
         <% @learning_objects.each do |lo| %>
         <tr>
             <td><strong><%= link_to lo.name, lo %></strong></td>
-            <td><%= lo.role %></td>
+            <td><%= MetadataSchema.find_author(lo) %></td>
             <td><%= lo.created_at.strftime("%d %B %Y") %></td>
             <td>
                 <% if can? :edit, lo %>
